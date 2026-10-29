@@ -31,16 +31,21 @@ pushing.
 ## Architecture
 
 ```
-index.js                          SDK wiring only: handlers registered before connect()
-src/devices/index.js              registry of the device blueprints + dispatch helpers
-src/devices/<type>.js             one device type per file (buildDevice, onPoll, onSetValue...)
-src/scenes.js                     scene action handlers (manifest `scene_actions`)
-src/widgets.js                    dashboard widget handlers (manifest `widgets`)
+index.js                          SDK wiring only: registerHandlers() then connect()
+src/app.js                        every SDK handler -> service; configuration action
+src/service.js                    names -> stations, timer, discovery, states, triggers, status
+src/sncf.js                       the SNCF portal: station list, equipment states, name matching
+src/devices.js                    the Gladys device of a station, its states
+src/scenes.js                     scene action handler (manifest `scene_actions`)
+src/widgets.js                    dashboard widget handler (manifest `widgets`)
+src/http.js                       downloads: timeouts, size caps
+src/messages.js                   texts sent from the container (en, fr, de, es)
 src/config.js                     DEFAULT_CONFIG (mirrors the manifest defaults) + normalization
-src/weather.js                    example driver (Open-Meteo)
-gladys-assistant-integration.json manifest: name, config_schema, actions, image...
-docs/en.md, docs/fr.md            user documentation, re-hosted by Gladys (mandatory)
+gladys-assistant-integration.json manifest: config, action, widget, scene triggers and action
+docs/{en,fr,de,es}.md             user documentation, re-hosted by Gladys (en and fr mandatory)
 test/                             node --test, against the SDK's fake Gladys (integration-sdk/testing)
+test/helpers/world.js             fake Gladys + fake fetch on the fixtures + manual clock
+test/fixtures/sncf                real answers of the SNCF portal (2026-10-29)
 .github/scripts/release.mjs       release helpers (manifest bump, changelog), tested in test/
 ```
 
@@ -250,3 +255,31 @@ long, et sur un « Sie »/« Ihr… » de politesse en allemand. Le store exige 
 - Docs `en`, `fr`, `de`, `es` avec les mêmes sections.
 - Chauffe, ouverture, sécurité : ne rien rendre pilotable « comme un thermostat » ou par un assistant
   vocal quand une erreur serait dangereuse (leçon d'OctoPrint).
+
+# Intégration Ascenseurs en gare SNCF (notes de développement, 29/10/2026)
+
+## Source vérifiée en direct (29/10/2026)
+
+- Portail Opendatasoft v2.1 `ressources.data.sncf.com`, sans clé, licence ODbL (Gares & Connexions).
+- `etat-fonctionnement-elevatique-gare` : 2 548 équipements, 604 gares ; champs `gareid`, `id`,
+  `libelle`, `localisationdescriptive`, `etat_de_fonctionnement` ∈ {`OK`, `KO`, `INCONNU`} (2 313 / 121 /
+  114 le 29/10). États recalculés toutes les heures, sans horodatage par équipement.
+- `gareid` = `id` du jeu `gares-de-voyageurs` (2 792 gares : `nom`, `codes_uic` séparés par `;`). Trois
+  `gareid` n'y figurent pas (le jeu `referentiel-gares-voyageurs` cité par la notice n'existe plus).
+- Libellés : préfixes `Ascenseur`, `ascenseur`, `ASC.PMR …`, `Esc mec`, `esc mec`, `Trottoir roul` ; deux
+  gares ont deux équipements au même libellé (noms dédoublés « (2) »). Jusqu'à 76 équipements
+  (Paris Montparnasse).
+- `exports/json?where=gareid in ("…")` : une requête pour toutes les gares suivies, sans limite de 100.
+- IDFM publie `etat-des-ascenseurs` mais les enregistrements répondent 403 sans compte ; rien chez la
+  RATP : non utilisés.
+
+## Choix et pièges
+
+- Une gare par appareil, une fonctionnalité `input/binary` par équipement (clé `eq-<uuid>`), plus
+  `out_of_order`, `unknown` (compteurs) et `all_ok` (1 seulement si **tous** les états sont `OK`).
+- `INCONNU` n'est jamais publié sur l'équipement (le capteur garde la dernière valeur connue).
+- Déclencheurs : passage à `KO` depuis autre chose que `KO` (inconnu compris), retour `KO` → `OK`
+  seulement. Pas d'événement si la lecture précédente date de plus de deux intervalles.
+- Le filtre par équipement précis n'existe pas (un champ `source: "devices"` ne liste que des
+  appareils) : la doc renvoie au déclencheur natif « état d'un appareil » sur la fonctionnalité.
+- `gladys_version >=5.3.0` à cause de `countries` et `keywords`.

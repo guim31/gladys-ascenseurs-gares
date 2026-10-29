@@ -1,67 +1,147 @@
-# Template de démonstration
+# Ascenseurs en gare SNCF
 
-Ceci est la documentation utilisateur de l'intégration. Gladys ré-héberge ce
-fichier et affiche un lien **Documentation** permanent vers lui dans l'écran
-de configuration (dans la langue de l'utilisateur, avec l'anglais en repli) —
-c'est au moment de configurer que l'utilisateur en a le plus besoin. Gardez
-les courtes indications d'accueil dans les blocs `section` du `config_schema`
-du manifest ; mettez ici le pas-à-pas détaillé (captures d'écran, dépannage…).
+L'**état des ascenseurs, escalators et trottoirs roulants** des gares SNCF, en service ou en panne,
+lu sur le portail open data de SNCF. Environ 2 500 équipements dans quelque 600 gares gérées par
+SNCF Gares & Connexions. **Sans compte ni clé.**
+
+Intégration non officielle, sans lien avec SNCF. Développée sans le matériel (et sans flux dédié) :
+les données ont été vérifiées en direct le 29/10/2026, vos retours sont les bienvenus.
 
 ## Ce que vous obtenez
 
-Six appareils de démonstration apparaissent après l'installation : une
-station météo (vraies données Open-Meteo), un interrupteur, une lampe
-variable, une prise connectée avec mesure de puissance, un détecteur de
-mouvement et une caméra.
+- Un **appareil par gare** ajoutée : un capteur par ascenseur, escalator ou trottoir roulant (1 = en
+  service, 0 = en panne), plus trois capteurs de synthèse : équipements en panne, équipements à
+  l'état inconnu, et « Tout en service ».
+- Un **widget** « Ascenseurs de la gare » : les équipements d'une gare, en panne d'abord, en rouge,
+  gris ou vert.
+- Deux **déclencheurs de scène** : un ascenseur ou un escalator tombe en panne, un équipement est
+  remis en service, pour toute gare ou celles choisies, et pour un type d'équipement si vous le
+  souhaitez.
+- Une **action de scène** : un résumé en une phrase (« Toulouse Matabiau : 1 équipement sur 25 en
+  panne (…). »), prêt pour un message ou une enceinte, avec les compteurs.
+
+## Prérequis
+
+- Gladys Assistant **5.3.0** ou plus récent.
+- Un accès à Internet depuis Gladys : les données viennent de `ressources.data.sncf.com`.
+- Ni compte, ni clé d'API.
+
+## Installation
+
+1. Dans Gladys, ouvrez **Intégrations → Installer depuis GitHub**.
+2. Collez l'adresse du dépôt : `https://github.com/guim31/gladys-ascenseurs-gares`.
+3. Validez, puis ouvrez l'intégration une fois installée.
 
 ## Configuration
 
-1. Ouvrez l'onglet **Configuration** de l'intégration.
-2. Renseignez la **latitude** et la **longitude** que la station météo de
-   démonstration doit observer (Paris par défaut), et choisissez votre unité
-   de température. L'**intervalle de rafraîchissement** règle la fréquence
-   de lecture de la station météo et de la puissance de la prise : toutes
-   les 5 minutes par défaut, toutes les minutes au plus.
-3. Enregistrez : les appareils apparaissent dans l'onglet **Découverte**,
-   prêts à être ajoutés.
+### Réglages
 
-Le réglage **Préférer la connexion locale** pilote la prise de
-démonstration : elle affiche en badge le canal réellement utilisé (local ou
-cloud), avec un point orange quand elle fonctionne en mode dégradé (local
-refusé, bascule cloud).
+| Réglage                     | Effet                                                                                                     |
+| --------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Gares                       | Les noms de vos gares, séparés par `;` (10 au plus), par exemple `Toulouse Matabiau; Paris Saint-Lazare`. |
+| Rafraîchissement            | Toutes les 10, 15 (par défaut) ou 30 minutes. SNCF recalcule les états toutes les heures.                 |
+| Langue des noms et messages | Langue des noms des capteurs de synthèse, du widget et de la phrase de scène. Français par défaut.        |
 
-## Actions
+Un nom est comparé sans accents, majuscules ni tirets (`paris st lazare` fonctionne). Un nom
+partiel, une ville par exemple, liste ses gares équipées (`Marseille` donne Marseille Saint-Charles
+et Marseille Blancarde), dix au plus. Un code UIC à 8 chiffres fonctionne aussi.
 
-- **Tester le fournisseur météo** — effectue une requête en direct vers
-  Open-Meteo et affiche la température et l'humidité actuelles sous le
-  bouton.
-- **Identifier un appareil** — choisissez un de vos appareils dans la liste
-  et il se signale (la lampe de démonstration « clignote » dans les logs).
+### Ajouter des gares
 
-## Scènes
+1. Tapez vos gares et enregistrez.
+2. Ouvrez l'onglet **Découverte** de l'intégration : chaque gare trouvée y figure, avec tous ses
+   équipements.
+3. Ajoutez celles qui vous intéressent à Gladys.
 
-L'intégration ajoute ses propres cartes à l'éditeur de scènes (Gladys 5.1
-ou plus récent), dans la catégorie **Intégrations** :
+Une gare ajoutée reste suivie même si vous retirez ensuite son nom des réglages.
 
-- **Mouvement détecté** (déclencheur) — lance la scène quand un détecteur
-  de démonstration voit bouger quelque chose. Choisissez éventuellement le
-  détecteur et ce qui a bougé (personne, animal) ; laissés vides, toute
-  détection correspond. Les actions suivantes peuvent lire ce qui a bougé
-  avec `{{triggerEvent.data.target}}`.
-- **Identifier un appareil** (action) — fait se signaler l'appareil choisi.
-  Elle indique si l'appareil a pu se signaler, pour que les actions
-  suivantes puissent en dépendre.
+### Vérifier
 
-## Tableau de bord
+Le bouton **État** de la configuration affiche, pour chaque nom saisi, les gares trouvées (ou
+pourquoi aucune ne l'est), l'heure de la dernière lecture et la dernière erreur.
 
-Ajoutez le widget **État de la démo** à un tableau de bord : il affiche en
-direct la température de la station météo et la puissance de la prise du
-bureau, la connexion utilisée par la prise (en orange si dégradée) et la
-position observée. Son bouton **Identifier la lampe** fait se signaler la
-lampe de démonstration.
+## Appareils
+
+Une gare est un appareil nommé « <gare> · ascenseurs et escalators », en lecture seule :
+
+| Fonctionnalité                | Type     | Valeur                                               |
+| ----------------------------- | -------- | ---------------------------------------------------- |
+| En panne                      | compteur | nombre d'équipements en panne                        |
+| État inconnu                  | compteur | nombre d'équipements dont SNCF ne connaît pas l'état |
+| Tout en service               | binaire  | 1 quand tous les équipements fonctionnent, sinon 0   |
+| Une par équipement (nom SNCF) | binaire  | 1 = en service, 0 = en panne                         |
+
+Les fonctionnalités des équipements gardent le nom SNCF (« Ascenseur - 11 Sortie Londres ») : c'est
+celui affiché en gare. Quand SNCF ne connaît pas l'état d'un équipement, son capteur garde la
+dernière valeur connue et le compteur « État inconnu » le signale. Si SNCF ajoute un équipement à la
+gare, l'onglet Découverte propose de **mettre à jour** l'appareil.
+
+## Widget du tableau de bord
+
+« Ascenseurs de la gare » affiche les équipements d'une gare (la première suivie si aucune n'est
+choisie) : en panne d'abord (rouge), état inconnu (gris), puis en service (vert). Dix lignes au
+plus, les autres sont comptées en dessous. Le réglage « Masquer les équipements en service » ne
+garde que les problèmes.
+
+## Déclencheurs de scène
+
+| Déclencheur                             | Quand                                          |
+| --------------------------------------- | ---------------------------------------------- |
+| Ascenseur ou escalator en panne         | un équipement d'une gare suivie tombe en panne |
+| Ascenseur ou escalator remis en service | un équipement en panne fonctionne de nouveau   |
+
+Filtres : les gares (vide = toutes) et le type d'équipement : ascenseur, escalator ou trottoir
+roulant (vide = tous). Variables : gare, équipement, emplacement, nombre en panne dans la gare,
+nombre d'équipements. Pour surveiller **un** équipement, utilisez sa fonctionnalité dans un
+déclencheur « état d'un appareil » de Gladys.
+
+Un équipement qui passe à l'état inconnu ne déclenche rien ; un équipement qui revient de l'état
+inconnu à en service non plus.
+
+## Action de scène
+
+« Résumer l'état des ascenseurs », pour toutes les gares suivies ou celles choisies. Sorties :
+`sentence` (phrase), `out_of_order` (en panne), `unknown` (état inconnu), `total` (équipements),
+`all_ok` (1 = oui, 0 = non, pour une étape « Continuer seulement si »).
+
+## Exemples de scènes
+
+- Chaque matin avant de partir : lancez le résumé de votre gare, puis envoyez la phrase par Telegram.
+- Quand un ascenseur de votre gare tombe en panne : une notification avec l'équipement et son
+  emplacement.
+- Quand « Tout en service » repasse à 1 : annoncez-le sur l'enceinte de l'entrée.
+
+## Données et rafraîchissement
+
+- Source : le jeu « Etat de fonctionnement des équipements d'élévatique en gare » du portail open
+  data SNCF (états OK, KO et INCONNU), et la liste « Gares de voyageurs » pour les noms.
+- SNCF recalcule les états **toutes les heures**, à partir des équipements et des équipes de
+  maintenance ; ils ne sont pas contractuels.
+- L'intégration lit les états de toutes vos gares en **une requête** par cycle, filtrée sur elles,
+  et la liste des gares une fois par jour. L'usage anonyme est limité par le portail (quelques
+  milliers de requêtes par jour) : l'intégration reste très en dessous.
 
 ## Dépannage
 
-L'intégration journalise tout ce qu'elle fait : consultez les logs de
-l'intégration depuis l'interface Gladys (ou `docker logs` sur l'hôte) avec
-`LOG_LEVEL=debug` pour le détail complet.
+- **Aucune gare dans l'onglet Découverte** : appuyez sur **État**. « Aucune gare trouvée » :
+  vérifiez l'orthographe, ou tapez une partie du nom. « Aucun ascenseur ni escalator recensé » : la
+  gare n'a pas d'équipement dans le jeu de données.
+- **Liste des gares indisponible** : le portail SNCF n'a pas répondu ; l'intégration réessaie au
+  cycle suivant.
+- **Un capteur ne change jamais** : certains équipements restent longtemps à l'état inconnu ; le
+  compteur « État inconnu » le montre.
+- Logs : **Intégrations → Ascenseurs en gare SNCF → Logs** ; `LOG_LEVEL=debug` pour chaque lecture.
+
+## Limites
+
+- Seules les gares gérées par SNCF Gares & Connexions qui publient leurs équipements (environ 600).
+- Les stations de métro et de RER de la RATP ne sont pas couvertes. L'état des ascenseurs
+  d'Île-de-France Mobilités demande un compte : non utilisé.
+- Un état peut dater d'une heure, parfois plus : vérifiez avant de partir si c'est important.
+- Les noms des équipements sont ceux de SNCF, en français.
+
+## Crédits
+
+- Données : SNCF Gares & Connexions, portail open data SNCF (`ressources.data.sncf.com`), sous
+  licence ODbL.
+- Construit sur le SDK d'intégration de Gladys Assistant. Sans lien avec SNCF.
