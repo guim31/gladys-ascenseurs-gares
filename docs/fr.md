@@ -81,7 +81,8 @@ gare, l'onglet Découverte propose de **mettre à jour** l'appareil.
 « Ascenseurs de la gare » affiche les équipements d'une gare (la première suivie si aucune n'est
 choisie) : en panne d'abord (rouge), état inconnu (gris), puis en service (vert). Dix lignes au
 plus, les autres sont comptées en dessous. Le réglage « Masquer les équipements en service » ne
-garde que les problèmes.
+garde que les problèmes. Quand le portail SNCF ne répond plus depuis trois heures, le widget le
+signale.
 
 ## Déclencheurs de scène
 
@@ -95,8 +96,8 @@ roulant (vide = tous). Variables : gare, équipement, emplacement, nombre en pan
 nombre d'équipements. Pour surveiller **un** équipement, utilisez sa fonctionnalité dans un
 déclencheur « état d'un appareil » de Gladys.
 
-Un équipement qui passe à l'état inconnu ne déclenche rien ; un équipement qui revient de l'état
-inconnu à en service non plus.
+Un état inconnu est ignoré : les déclencheurs comparent au dernier état connu. En panne → inconnu →
+en panne ne déclenche rien ; en panne → inconnu → en service déclenche « remis en service ».
 
 ## Action de scène
 

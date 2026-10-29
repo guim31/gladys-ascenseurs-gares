@@ -278,8 +278,11 @@ long, et sur un « Sie »/« Ihr… » de politesse en allemand. Le store exige 
 - Une gare par appareil, une fonctionnalité `input/binary` par équipement (clé `eq-<uuid>`), plus
   `out_of_order`, `unknown` (compteurs) et `all_ok` (1 seulement si **tous** les états sont `OK`).
 - `INCONNU` n'est jamais publié sur l'équipement (le capteur garde la dernière valeur connue).
-- Déclencheurs : passage à `KO` depuis autre chose que `KO` (inconnu compris), retour `KO` → `OK`
-  seulement. Pas d'événement si la lecture précédente date de plus de deux intervalles.
+- Déclencheurs : comparés au **dernier état connu** (`OK` ou `KO`) de chaque équipement, `INCONNU`
+  sauté (KO → inconnu → KO ne redéclenche pas). Pas d'événement si la lecture précédente date de plus
+  de deux intervalles. Une réponse vide du portail est une erreur (les derniers états restent).
+- Widget : **un seul texte de corps** par carte (le second est jeté par le budget du cœur) ; l'alerte
+  « données de plus de 3 h » remplace alors la ligne « + N autres ».
 - Le filtre par équipement précis n'existe pas (un champ `source: "devices"` ne liste que des
   appareils) : la doc renvoie au déclencheur natif « état d'un appareil » sur la fonctionnalité.
 - `gladys_version >=5.3.0` à cause de `countries` et `keywords`.

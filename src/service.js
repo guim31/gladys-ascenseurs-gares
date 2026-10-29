@@ -30,7 +30,9 @@ const logger = createLogger({ name: 'ascenseurs-gares' });
 export const LIST_TTL_MS = 24 * 3600 * 1000;
 // Unchanged states (a station always in order) are sent again this often, or
 // the dashboard shows "no recent value" after 48 hours.
-export const HEARTBEAT_MS = 6 * 3600 * 1000;
+export const HEARTBEAT_MS = 12 * 3600 * 1000;
+// States older than this (the portal down for hours) are flagged in the widget.
+export const STALE_MS = 3 * 3600 * 1000;
 
 export const TRIGGERS = {
   DOWN: 'equipment_down',
@@ -56,6 +58,7 @@ export class Stations {
     this.resolved = []; // resolveQuery results, one per name typed
     this.resolvedFor = null;
     this.readings = new Map(); // station id → equipment[]
+    this.lastKnown = new Map(); // equipment id → last state known: "ok" or "ko"
     this.names = new Map(); // station id → station name
     this.okAt = null;
     this.previousOkAt = null;
@@ -246,6 +249,8 @@ export class Stations {
   async onDeviceCreated(device) {
     const found = this.lookup(device?.external_id);
     if (!found?.equipment) {
+      // Never read yet (a station added from another source): read it now.
+      await this.refresh();
       return;
     }
     await this.publish(stationStates(this.gladys, found.stationId, found.equipment));
@@ -275,11 +280,10 @@ export class Stations {
 
   async refreshAll(forceDiscovery) {
     await this.resolve();
-    const previous = this.readings;
     const ids = this.activeIds();
     let events = [];
     if (ids.length > 0 && (await this.readStates(ids))) {
-      events = this.changes(previous);
+      events = this.changes();
     }
     await this.publishDiscovered({ force: forceDiscovery });
     const states = [];
@@ -326,8 +330,11 @@ export class Stations {
           logger.warn(`Station list unavailable: ${err.message}`);
         }
         this.listError = err.message;
-        // The stations found before (if any) are still read.
-        return;
+        // A list older than a day still resolves the names; without any,
+        // the stations found before (if any) are still read.
+        if (!this.list) {
+          return;
+        }
       }
     }
     for (const entry of this.watched()) {
@@ -352,7 +359,19 @@ export class Stations {
   /** Reads the states of the stations; a failure is logged once, until it works again. */
   async readStates(ids) {
     try {
-      this.readings = await readEquipment(this.fetch, ids);
+      const readings = await readEquipment(this.fetch, ids);
+      // A station that had equipment and suddenly has none is a glitch of
+      // the portal (an empty answer), not a station without lifts.
+      const hadAny = [...this.readings.values()].some((list) => list.length > 0);
+      if (hadAny && [...readings.values()].every((list) => list.length === 0)) {
+        throw new Error('ressources.data.sncf.com: empty answer');
+      }
+      for (const [id, list] of readings) {
+        if (list.length === 0 && this.readings.get(id)?.length > 0) {
+          readings.set(id, this.readings.get(id));
+        }
+      }
+      this.readings = readings;
       this.previousOkAt = this.okAt;
       this.okAt = this.now();
       if (this.error) {
@@ -370,53 +389,52 @@ export class Stations {
     }
   }
 
-  /** The trigger events between the previous and the new readings. */
-  changes(previous) {
+  /**
+   * The trigger events of the new readings, against the last state known
+   * (OK or KO) of each equipment: an unknown state in between neither fires
+   * nor hides a change (KO → unknown → KO fires nothing, KO → unknown → OK
+   * fires "back").
+   */
+  changes() {
     // A comparison with a reading hours old (a portal back after an outage)
     // would fire changes that are no longer news.
     const recent =
       this.previousOkAt !== null &&
       this.okAt - this.previousOkAt <= 2 * this.config.refreshSeconds * 1000 + 5000;
-    if (!recent) {
-      return [];
-    }
+    const watched = new Map(this.watched().map((entry) => [entry.stationId, entry]));
     const events = [];
-    for (const entry of this.watched()) {
-      const before = previous.get(entry.stationId);
-      const after = this.readings.get(entry.stationId);
-      if (!before || !after) {
-        continue;
-      }
-      const name = this.names.get(entry.stationId) ?? entry.name;
+    for (const [stationId, after] of this.readings) {
+      const entry = watched.get(stationId);
       const { ko, total } = counts(after);
       for (const item of after) {
-        const old = before.find((e) => e.id === item.id);
-        if (!old) {
+        if (item.state === STATES.UNKNOWN) {
           continue;
         }
-        let key = null;
-        if (old.state !== STATES.KO && item.state === STATES.KO) {
-          key = TRIGGERS.DOWN;
-        } else if (old.state === STATES.KO && item.state === STATES.OK) {
-          key = TRIGGERS.BACK;
+        const known = this.lastKnown.get(item.id);
+        this.lastKnown.set(item.id, item.state);
+        if (!recent || !entry || !known || known === item.state) {
+          continue;
         }
-        if (key) {
-          events.push({
-            key,
-            data: {
-              station: entry.deviceId,
-              kind: item.kind,
-              station_name: name,
-              equipment_name: item.label,
-              location: item.location,
-              out_of_order: ko,
-              total,
-            },
-          });
-        }
+        events.push({
+          key: item.state === STATES.KO ? TRIGGERS.DOWN : TRIGGERS.BACK,
+          data: {
+            station: entry.deviceId,
+            kind: item.kind,
+            station_name: this.names.get(stationId) ?? entry.name,
+            equipment_name: item.label,
+            location: item.location,
+            out_of_order: ko,
+            total,
+          },
+        });
       }
     }
     return events;
+  }
+
+  /** True when the last good reading is hours old (or there is none). */
+  isStale() {
+    return this.okAt === null || this.now() - this.okAt > STALE_MS;
   }
 
   async fire(key, data) {

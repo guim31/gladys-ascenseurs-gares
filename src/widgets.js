@@ -4,7 +4,8 @@
 // - station: the lifts and escalators of one followed station, one status
 //   row each ("Ascenseur - Voie A" / "en panne"), out of order first (red),
 //   then unknown (grey), then in service (green). Ten rows at most, the
-//   others counted in a text line. A setting hides the equipment in service.
+//   others counted in a text line, replaced by a warning when the data is
+//   hours old. A setting hides the equipment in service.
 //
 // Budget of the core: 8 components, 2 texts, 1 status (10 rows).
 // -----------------------------------------------------------------------------
@@ -48,7 +49,7 @@ async function stationContent(service, { settings, language }) {
     ? sorted.filter((item) => item.state !== STATES.OK)
     : sorted;
   if (candidates.length === 0) {
-    return text('allOk');
+    return text(service.isStale() ? 'stale' : 'allOk');
   }
   const shown = candidates.slice(0, MAX_ROWS);
   const components = [
@@ -61,7 +62,10 @@ async function stationContent(service, { settings, language }) {
       })),
     },
   ];
-  if (candidates.length > shown.length) {
+  // One body text per card: the age of the data matters more than the count.
+  if (service.isStale()) {
+    components.push({ type: 'text', text: say(TEXT, language, 'stale') });
+  } else if (candidates.length > shown.length) {
     const left = candidates.length - shown.length;
     components.push({ type: 'text', text: say(TEXT, language, 'more', { count: left }) });
   }

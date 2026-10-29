@@ -148,21 +148,92 @@ test('triggers: out of order, back in service, with the kind and the station', a
   );
 });
 
-test('triggers: unknown → out of order fires, out of order → unknown → in service does not', async (t) => {
+test('triggers: an unknown state in between neither fires nor hides a change', async (t) => {
   const world = await createWorld();
   t.after(() => world.app.stop());
   await create(world, 'Matabiau');
+  const keys = () => world.fake.sceneEvents.map((e) => [e.key, e.data.equipment_name]);
+  // Never known (unknown since the start) → KO: nothing to compare with.
   setState(world, UNKNOWN_MATABIAU, 'KO');
   await cycle(world);
+  assert.deepEqual(keys(), []);
+  // KO → unknown → KO: still the same breakdown.
+  setState(world, KO_MATABIAU, 'INCONNU');
+  await cycle(world);
+  setState(world, KO_MATABIAU, 'KO');
+  await cycle(world);
+  assert.deepEqual(keys(), []);
+  // KO → unknown → OK: back in service.
+  setState(world, KO_MATABIAU, 'INCONNU');
+  await cycle(world);
+  setState(world, KO_MATABIAU, 'OK');
+  await cycle(world);
+  // OK → unknown → KO: out of order.
+  setState(world, OK_MATABIAU, 'INCONNU');
+  await cycle(world);
+  setState(world, OK_MATABIAU, 'KO');
+  await cycle(world);
+  assert.deepEqual(keys(), [
+    [TRIGGERS.BACK, KO_MATABIAU],
+    [TRIGGERS.DOWN, OK_MATABIAU],
+  ]);
+});
+
+test('review fixes: an empty answer is a failure, the last states stay', async (t) => {
+  const world = await createWorld();
+  t.after(() => world.app.stop());
+  const device = await create(world, 'Matabiau');
+  const saved = world.network.state.equipment;
+  world.network.state.equipment = [];
+  await cycle(world);
+  assert.equal(world.fake.discoveredDevices.length, 2);
+  assert.match((await action(world, 'status')).en, /Last error: .*empty answer/);
+  const result = await world.fake.sceneAction('summary', { stations: [device.external_id] });
+  assert.equal(result.data.outputs.total, 25);
+  world.network.state.equipment = saved;
+  await cycle(world);
+  assert.doesNotMatch((await action(world, 'status')).en, /Last error/);
+});
+
+test('review fixes: a station list older than a day still resolves new names', async (t) => {
+  const world = await createWorld();
+  t.after(() => world.app.stop());
+  world.network.routes[STATIONS_URL] = 500;
+  world.clock.advance(25 * 3600 * 1000);
+  await world.fake.configUpdated({ stations: 'Méru' });
   assert.deepEqual(
-    world.fake.sceneEvents.map((e) => e.key),
-    [TRIGGERS.DOWN],
+    world.fake.discoveredDevices.map((d) => d.name),
+    ['Méru · ascenseurs et escalators'],
   );
-  setState(world, UNKNOWN_MATABIAU, 'INCONNU');
-  await cycle(world);
-  setState(world, UNKNOWN_MATABIAU, 'OK');
-  await cycle(world);
-  assert.equal(world.fake.sceneEvents.length, 1);
+});
+
+test('review fixes: the widget says when the data is hours old', async (t) => {
+  const world = await createWorld();
+  t.after(() => world.app.stop());
+  await create(world, 'Matabiau');
+  world.network.routes.equipment = 503;
+  await cycle(world, 4 * 3600);
+  const { data } = await world.fake.widgetGet('station', { language: 'fr', settings: {} });
+  assert.deepEqual(validateWidgetContent(data.content), []);
+  assert.ok(
+    data.content.components.some(
+      (c) => c.text === 'Données de plus de 3 h : portail SNCF injoignable.',
+    ),
+  );
+});
+
+test('review fixes: a station added before any reading is read at once', async (t) => {
+  const world = await createWorld({ config: { stations: 'Méru' } });
+  t.after(() => world.app.stop());
+  const before = world.network.calls.length;
+  await world.fake.deviceCreated({
+    external_id: `gladys-ascenseurs-gares:station:${STATION.MATABIAU}`,
+    name: 'Toulouse',
+    params: [{ name: 'station_id', value: STATION.MATABIAU }],
+    features: [],
+  });
+  assert.ok(world.network.calls.length > before);
+  assert.ok(world.service.readings.get(STATION.MATABIAU).length === 25);
 });
 
 test('triggers: nothing for a station not added, nor after an outage of the portal', async (t) => {

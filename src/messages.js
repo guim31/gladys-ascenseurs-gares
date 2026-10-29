@@ -66,6 +66,7 @@ export const TEXT = {
         : `${name}: all ${total} lifts and escalators are in service.`;
     },
     noData: ({ name }) => `${name}: state of the equipment not known yet.`,
+    stale: 'Data more than 3 hours old: SNCF portal unreachable.',
     allOk: 'Every lift and escalator is in service.',
     more: ({ count }) => `+ ${count} more`,
     pickStation: 'Add a station in the Discover tab of the integration, then pick it here.',
@@ -89,6 +90,7 @@ export const TEXT = {
         : `${name} : les ${total} équipements sont en service.`;
     },
     noData: ({ name }) => `${name} : état des équipements pas encore connu.`,
+    stale: 'Données de plus de 3 h : portail SNCF injoignable.',
     allOk: 'Tous les ascenseurs et escalators sont en service.',
     more: ({ count }) => `+ ${count} autre${count > 1 ? 's' : ''}`,
     pickStation:
@@ -114,6 +116,7 @@ export const TEXT = {
         : `${name}: alle ${total} Aufzüge und Rolltreppen sind in Betrieb.`;
     },
     noData: ({ name }) => `${name}: Zustand der Anlagen noch nicht bekannt.`,
+    stale: 'Daten älter als 3 Stunden: SNCF-Portal nicht erreichbar.',
     allOk: 'Alle Aufzüge und Rolltreppen sind in Betrieb.',
     more: ({ count }) => `+ ${count} weitere`,
     pickStation: 'Füge einen Bahnhof im Tab „Entdecken“ der Integration hinzu und wähle ihn hier.',
@@ -137,6 +140,7 @@ export const TEXT = {
         : `${name}: los ${total} ascensores y escaleras mecánicas están en servicio.`;
     },
     noData: ({ name }) => `${name}: estado de los equipos aún desconocido.`,
+    stale: 'Datos de más de 3 horas: portal SNCF inaccesible.',
     allOk: 'Todos los ascensores y escaleras mecánicas están en servicio.',
     more: ({ count }) => `+ ${count} más`,
     pickStation:

@@ -83,7 +83,7 @@ Bahnhof eine Anlage hinzu, bietet der Tab „Entdecken“ an, das Gerät zu **ak
 „Aufzüge im Bahnhof“ zeigt die Anlagen eines Bahnhofs (den ersten verfolgten, wenn keiner gewählt
 ist): gestörte zuerst (Rot), unbekannte (Grau), dann die in Betrieb (Grün). Höchstens zehn Zeilen,
 die übrigen werden darunter gezählt. Die Einstellung „Anlagen in Betrieb ausblenden“ zeigt nur die
-Probleme.
+Probleme. Antwortet das SNCF-Portal seit drei Stunden nicht, zeigt das Widget es an.
 
 ## Szenen-Auslöser
 
@@ -97,8 +97,9 @@ Filter: die Bahnhöfe (leer = alle) und die Art der Anlage: Aufzug, Rolltreppe o
 Anlagen. Um **eine** Anlage zu überwachen, nutze ihre Funktion in einem Gladys-Auslöser
 „Gerätezustand“.
 
-Eine Anlage, deren Zustand unbekannt wird, löst nichts aus; eine, die von unbekannt zu in Betrieb
-wechselt, auch nicht.
+Ein unbekannter Zustand wird übersprungen: die Auslöser vergleichen mit dem letzten bekannten
+Zustand. Außer Betrieb → unbekannt → außer Betrieb löst nichts aus; außer Betrieb → unbekannt → in
+Betrieb löst „wieder in Betrieb“ aus.
 
 ## Szenen-Aktion
 

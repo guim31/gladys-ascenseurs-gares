@@ -82,7 +82,7 @@ un equipo a la estación, la pestaña Descubrir propone **actualizar** el dispos
 «Ascensores de la estación» muestra los equipos de una estación (la primera seguida si no se elige
 ninguna): averiados primero (rojo), desconocidos (gris) y luego en servicio (verde). Diez filas como
 máximo, las demás se cuentan debajo. El ajuste «Ocultar los equipos en servicio» solo deja los
-problemas.
+problemas. Cuando el portal SNCF no responde desde hace tres horas, el widget lo indica.
 
 ## Disparadores de escena
 
@@ -96,8 +96,9 @@ rodante (vacío = todos). Variables: estación, equipo, ubicación, número fuer
 estación, número de equipos. Para vigilar **un** equipo, use su función en un disparador «estado de
 un dispositivo» de Gladys.
 
-Un equipo cuyo estado pasa a desconocido no dispara nada; uno que pasa de desconocido a en servicio
-tampoco.
+Un estado desconocido se ignora: los disparadores comparan con el último estado conocido. Fuera de
+servicio → desconocido → fuera de servicio no dispara nada; fuera de servicio → desconocido → en
+servicio dispara «de nuevo en servicio».
 
 ## Acción de escena
 

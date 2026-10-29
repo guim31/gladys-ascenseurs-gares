@@ -79,7 +79,8 @@ the Discover tab offers to **update** the device.
 
 "Station lifts and escalators" shows the equipment of one station (the first followed one if none is
 picked): out of order first (red), unknown (grey), then in service (green). Ten rows at most, the
-others are counted below. The setting "Hide equipment in service" keeps only the problems.
+others are counted below. The setting "Hide equipment in service" keeps only the problems. When the
+SNCF portal has not answered for three hours, the widget says so.
 
 ## Scene triggers
 
@@ -92,8 +93,8 @@ Filters: the stations (empty = any) and the kind of equipment: lift, escalator o
 (empty = any). Variables: station, equipment, location, number out of order in the station, number
 of equipment. To watch **one** equipment, use its feature in a Gladys "device state" trigger.
 
-An equipment whose state becomes unknown fires nothing; one coming back from unknown to in service
-does not either.
+An unknown state is skipped: the triggers compare with the last state known. Out of order → unknown
+→ out of order fires nothing; out of order → unknown → in service fires "back in service".
 
 ## Scene action
 
