@@ -10,6 +10,8 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-29
+
 ### Added
 
 - The street lifts and escalators of the City of Paris (parks, viaducts, Petite
@@ -40,5 +42,6 @@ the notes of the version's GitHub Release.
   the counts.
 - Status action, documentation in English, French, German and Spanish.
 
-[Unreleased]: https://github.com/guim31/gladys-ascenseurs-gares/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/guim31/gladys-ascenseurs-gares/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/guim31/gladys-ascenseurs-gares/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/guim31/gladys-ascenseurs-gares/releases/tag/v1.0.0
