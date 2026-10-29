@@ -12,6 +12,7 @@ import { districtChoices, normalizeConfig } from '../src/config.js';
 import {
   PARIS_URL,
   districtName,
+  districtOfRecord,
   parisKindOf,
   parisStateOf,
   prettyPlace,
@@ -238,4 +239,84 @@ test('Paris: an empty answer is a failure, the last states stay', async (t) => {
   assert.equal(world.service.readings.get('paris-13').length, 14);
   assert.equal(world.fake.lastState(featureId(device, 'out_of_order')), 11);
   assert.match((await action(world, 'status')).en, /City of Paris, last error: .*empty answer/);
+});
+
+test('Paris review fixes: duplicates, status variants, missing flag, postcode district', async () => {
+  assert.deepEqual(
+    ['En panne - intervention', 'Hors service', "A l'arrêt", 'En fonctionnement ', 'Inconnu'].map(
+      parisStateOf,
+    ),
+    ['ko', 'ko', 'ko', 'ok', 'unknown'],
+  );
+  assert.deepEqual(['13', '13e', '1er', '75017', '75', '21', null].map(districtOfRecord), [
+    '13',
+    '13',
+    '1',
+    '17',
+    null,
+    null,
+    null,
+  ]);
+  const base = {
+    nom_equipement: 'ASCENSEUR VOIE PUBLIQUE',
+    adresse: '1 RUE TEST',
+    equipement: null,
+  };
+  const records = [
+    {
+      ...base,
+      identifiant: '5001',
+      arrondissement: '75005',
+      equipement_telesurveille: 'Télé-surveillé',
+      statut: 'En fonctionnement',
+    },
+    // The same identifiant again, out of order: one feature, out of order.
+    {
+      ...base,
+      identifiant: '5001',
+      arrondissement: '5',
+      equipement_telesurveille: 'Télé-surveillé',
+      statut: 'En panne',
+    },
+    // Flag missing but a state known: kept. Decomposed accents: kept.
+    {
+      ...base,
+      identifiant: '5002',
+      arrondissement: '5',
+      equipement_telesurveille: null,
+      statut: 'En panne',
+    },
+    {
+      ...base,
+      identifiant: '5003',
+      arrondissement: '5',
+      equipement_telesurveille: 'Télé-surveillé',
+      statut: 'En fonctionnement',
+    },
+    // Not monitored, flag or statut: left out.
+    {
+      ...base,
+      identifiant: '5004',
+      arrondissement: '5',
+      equipement_telesurveille: null,
+      statut: 'Non télé-surveillé',
+    },
+    {
+      ...base,
+      identifiant: '5005',
+      arrondissement: '5',
+      equipement_telesurveille: 'Non télé-surveillé',
+      statut: null,
+    },
+  ];
+  const network = createFetch({ [PARIS_URL]: records });
+  const list = (await readParis(network.fetch, ['paris-5'])).get('paris-5');
+  assert.deepEqual(
+    list.map((item) => [item.id, item.state]),
+    [
+      ['5001', 'ko'],
+      ['5002', 'ko'],
+      ['5003', 'ok'],
+    ],
+  );
 });

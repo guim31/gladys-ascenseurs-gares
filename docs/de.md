@@ -101,7 +101,7 @@ Stadt ohne Fernüberwachung haben nie einen Zustand: sie werden nicht angeboten.
 „Aufzüge und Rolltreppen“ zeigt die Anlagen eines Bahnhofs (den ersten verfolgten, wenn keiner gewählt
 ist): gestörte zuerst (Rot), unbekannte (Grau), dann die in Betrieb (Grün). Höchstens zehn Zeilen,
 die übrigen werden darunter gezählt. Die Einstellung „Anlagen in Betrieb ausblenden“ zeigt nur die
-Probleme. Antwortet das SNCF-Portal seit drei Stunden nicht, zeigt das Widget es an.
+Probleme. Antwortet das SNCF-Portal (oder das der Stadt Paris) seit drei Stunden nicht, zeigt das Widget es an.
 
 ## Szenen-Auslöser
 

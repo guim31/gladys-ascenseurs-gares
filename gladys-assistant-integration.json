@@ -516,20 +516,20 @@
           "key": "out_of_order",
           "type": "number",
           "label": {
-            "en": "Out of order at the same place",
-            "fr": "En panne au même endroit",
-            "de": "Außer Betrieb am selben Ort",
-            "es": "Fuera de servicio en el mismo lugar"
+            "en": "Out of order in the station or district",
+            "fr": "En panne dans la gare ou l'arrondissement",
+            "de": "Außer Betrieb im Bahnhof oder Arrondissement",
+            "es": "Fuera de servicio en la estación o distrito"
           }
         },
         {
           "key": "total",
           "type": "number",
           "label": {
-            "en": "Equipment at the same place",
-            "fr": "Équipements au même endroit",
-            "de": "Anlagen am selben Ort",
-            "es": "Equipos en el mismo lugar"
+            "en": "Equipment of the station or district",
+            "fr": "Équipements de la gare ou de l'arrondissement",
+            "de": "Anlagen des Bahnhofs oder Arrondissements",
+            "es": "Equipos de la estación o distrito"
           }
         }
       ]
@@ -649,20 +649,20 @@
           "key": "out_of_order",
           "type": "number",
           "label": {
-            "en": "Out of order at the same place",
-            "fr": "En panne au même endroit",
-            "de": "Außer Betrieb am selben Ort",
-            "es": "Fuera de servicio en el mismo lugar"
+            "en": "Out of order in the station or district",
+            "fr": "En panne dans la gare ou l'arrondissement",
+            "de": "Außer Betrieb im Bahnhof oder Arrondissement",
+            "es": "Fuera de servicio en la estación o distrito"
           }
         },
         {
           "key": "total",
           "type": "number",
           "label": {
-            "en": "Equipment at the same place",
-            "fr": "Équipements au même endroit",
-            "de": "Anlagen am selben Ort",
-            "es": "Equipos en el mismo lugar"
+            "en": "Equipment of the station or district",
+            "fr": "Équipements de la gare ou de l'arrondissement",
+            "de": "Anlagen des Bahnhofs oder Arrondissements",
+            "es": "Equipos de la estación o distrito"
           }
         }
       ]

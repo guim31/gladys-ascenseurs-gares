@@ -98,7 +98,7 @@ that is not remotely monitored never has a state: it is not offered.
 "Lifts and escalators" shows the equipment of one station (the first followed one if none is
 picked): out of order first (red), unknown (grey), then in service (green). Ten rows at most, the
 others are counted below. The setting "Hide equipment in service" keeps only the problems. When the
-SNCF portal has not answered for three hours, the widget says so.
+SNCF portal (or the City of Paris one) has not answered for three hours, the widget says so.
 
 ## Scene triggers
 

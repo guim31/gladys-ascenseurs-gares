@@ -101,7 +101,7 @@ Los equipos del Ayuntamiento sin telesupervisión nunca tienen estado: no se pro
 «Ascensores y escaleras» muestra los equipos de una estación (la primera seguida si no se elige
 ninguna): averiados primero (rojo), desconocidos (gris) y luego en servicio (verde). Diez filas como
 máximo, las demás se cuentan debajo. El ajuste «Ocultar los equipos en servicio» solo deja los
-problemas. Cuando el portal SNCF no responde desde hace tres horas, el widget lo indica.
+problemas. Cuando el portal SNCF (o el del Ayuntamiento de París) no responde desde hace tres horas, el widget lo indica.
 
 ## Disparadores de escena
 

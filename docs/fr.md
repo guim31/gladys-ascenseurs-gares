@@ -100,7 +100,7 @@ proposés.
 « Ascenseurs et escalators » affiche les équipements d'une gare (la première suivie si aucune n'est
 choisie) : en panne d'abord (rouge), état inconnu (gris), puis en service (vert). Dix lignes au
 plus, les autres sont comptées en dessous. Le réglage « Masquer les équipements en service » ne
-garde que les problèmes. Quand le portail SNCF ne répond plus depuis trois heures, le widget le
+garde que les problèmes. Quand le portail SNCF (ou celui de la Ville de Paris) ne répond plus depuis trois heures, le widget le
 signale.
 
 ## Déclencheurs de scène
