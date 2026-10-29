@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
-// The Gladys device of a station and its states:
+// The Gladys device of a site (an SNCF station, or a district of Paris for the
+// street equipment of the City) and its states:
 //   out_of_order    counter-sensor/integer  equipment out of order
 //   unknown         counter-sensor/integer  equipment whose state SNCF does
 //                                           not know right now
@@ -9,7 +10,8 @@
 //                                           0 = out of order
 //
 // The equipment features are named after the SNCF label ("Ascenseur - 11
-// Sortie Londres"), which is a place name: never translated. An equipment
+// Sortie Londres") or the street address of the City of Paris ("Ascenseur -
+// 147 rue Cardinet (A)"), place names: never translated. An equipment
 // whose state is unknown gets no state (the last known one stays, the
 // "unknown" counter says it).
 //
@@ -22,9 +24,18 @@ import {
   DEVICE_FEATURE_TYPES as T,
 } from '@gladysassistant/integration-sdk';
 import { NAMES } from './messages.js';
+import { PARIS_TYPE, districtOf } from './paris.js';
 import { STATES } from './sncf.js';
 
 export const STATION_TYPE = 'station';
+
+/** The external ids of a site: a station UUID, or a district of Paris ("paris-13"). */
+export function siteIds(gladys, siteId) {
+  const district = districtOf(siteId);
+  return district
+    ? gladys.externalIds(PARIS_TYPE, district)
+    : gladys.externalIds(STATION_TYPE, siteId);
+}
 export const MAX_DEVICE_NAME = 80;
 export const MAX_FEATURE_NAME = 100;
 export const SUMMARY_KEYS = ['out_of_order', 'unknown', 'all_ok'];
@@ -73,7 +84,8 @@ export function equipmentNames(equipment) {
  * @param {string} language
  */
 export function buildStationDevice(gladys, station, equipment, language) {
-  const ids = gladys.externalIds(STATION_TYPE, station.id);
+  const ids = siteIds(gladys, station.id);
+  const district = districtOf(station.id);
   const names = NAMES[language] ?? NAMES.en;
   const max = countMax(equipment.length);
   const binary = { category: C.INPUT, type: T.SENSOR.BINARY, min: 0, max: 1 };
@@ -89,7 +101,11 @@ export function buildStationDevice(gladys, station, equipment, language) {
     name: stationDeviceName(station.name, language),
     external_id: ids.device,
     should_poll: false,
-    params: [{ name: 'station_id', value: station.id }],
+    params: [
+      district
+        ? { name: 'paris_district', value: district }
+        : { name: 'station_id', value: station.id },
+    ],
     features: features.map(({ key, ...feature }) => ({
       ...feature,
       external_id: ids.feature(key),
@@ -116,7 +132,7 @@ export function counts(equipment) {
 
 /** The states of a station device. */
 export function stationStates(gladys, stationId, equipment) {
-  const ids = gladys.externalIds(STATION_TYPE, stationId);
+  const ids = siteIds(gladys, stationId);
   if (equipment.length === 0) {
     return [];
   }

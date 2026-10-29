@@ -1,12 +1,12 @@
 {
   "manifest_version": 1,
   "type": "device",
-  "name": "Ascenseurs en gare SNCF",
+  "name": "Ascenseurs gares SNCF et Paris",
   "description": {
-    "en": "Lifts and escalators of SNCF stations: in service or out of order, from SNCF open data.",
-    "fr": "Ascenseurs et escalators des gares SNCF : en service ou en panne, d'après l'open data SNCF.",
-    "de": "Aufzüge und Rolltreppen der SNCF-Bahnhöfe: in Betrieb oder gestört (SNCF Open Data).",
-    "es": "Ascensores y escaleras mecánicas de estaciones SNCF: en servicio o averiados (datos abiertos)."
+    "en": "Lifts and escalators of SNCF stations and Paris streets: in service or out of order (open data).",
+    "fr": "Ascenseurs et escalators des gares SNCF et des rues de Paris : en service ou en panne (open data).",
+    "de": "Aufzüge und Rolltreppen der SNCF-Bahnhöfe und Pariser Straßen: in Betrieb oder gestört.",
+    "es": "Ascensores y escaleras mecánicas de estaciones SNCF y calles de París: en servicio o averiados."
   },
   "version": "1.0.0",
   "docker_image": "ghcr.io/guim31/gladys-ascenseurs-gares:1.0.0",
@@ -22,10 +22,10 @@
     "escalator",
     "accessibilité",
     "PMR",
-    "Gares & Connexions",
+    "Paris",
+    "voirie",
     "lift",
-    "elevator",
-    "accessibility"
+    "elevator"
   ],
   "config_schema": [
     {
@@ -38,10 +38,10 @@
         "es": "Funcionamiento"
       },
       "description": {
-        "en": "Type your stations and save: they appear in the Discover tab with their lifts and escalators. Add the ones you want to Gladys. No account, no key.",
-        "fr": "Tapez vos gares et enregistrez : elles apparaissent dans l'onglet Découverte avec leurs ascenseurs et escalators. Ajoutez celles qui vous intéressent à Gladys. Sans compte ni clé.",
-        "de": "Gib deine Bahnhöfe ein und speichere: sie erscheinen im Tab „Entdecken“ mit ihren Aufzügen und Rolltreppen. Füge die gewünschten zu Gladys hinzu. Kein Konto, kein Schlüssel.",
-        "es": "Escriba sus estaciones y guarde: aparecen en la pestaña Descubrir con sus ascensores y escaleras mecánicas. Añada a Gladys las que le interesen. Sin cuenta ni clave."
+        "en": "Type your stations and/or tick districts of Paris, then save: they appear in the Discover tab with their lifts and escalators. Add the ones you want to Gladys. No account, no key.",
+        "fr": "Tapez vos gares et/ou cochez des arrondissements de Paris, puis enregistrez : ils apparaissent dans l'onglet Découverte avec leurs ascenseurs et escalators. Ajoutez ceux qui vous intéressent à Gladys. Sans compte ni clé.",
+        "de": "Gib deine Bahnhöfe ein und/oder wähle Pariser Arrondissements und speichere: sie erscheinen im Tab „Entdecken“ mit ihren Aufzügen und Rolltreppen. Füge die gewünschten zu Gladys hinzu. Kein Konto, kein Schlüssel.",
+        "es": "Escriba sus estaciones y/o marque distritos de París y guarde: aparecen en la pestaña Descubrir con sus ascensores y escaleras mecánicas. Añada a Gladys los que le interesen. Sin cuenta ni clave."
       },
       "links": [
         {
@@ -78,6 +78,206 @@
         "de": "Toulouse Matabiau; Paris Saint-Lazare",
         "es": "Toulouse Matabiau; Paris Saint-Lazare"
       }
+    },
+    {
+      "key": "paris_districts",
+      "type": "multi_select",
+      "required": false,
+      "default": [],
+      "label": {
+        "en": "Districts of Paris",
+        "fr": "Arrondissements de Paris",
+        "de": "Pariser Arrondissements",
+        "es": "Distritos de París"
+      },
+      "description": {
+        "en": "Street lifts and escalators of the City of Paris, remotely monitored (parks, viaducts, Petite Ceinture). One device per district.",
+        "fr": "Ascenseurs et escalators de voirie de la Ville de Paris, télésurveillés (parcs, viaducs, Petite Ceinture). Un appareil par arrondissement.",
+        "de": "Fernüberwachte Aufzüge und Rolltreppen im Straßenraum der Stadt Paris (Parks, Viadukte, Petite Ceinture). Ein Gerät pro Arrondissement.",
+        "es": "Ascensores y escaleras mecánicas de la vía pública de París, telesupervisados (parques, viaductos, Petite Ceinture). Un dispositivo por distrito."
+      },
+      "options": [
+        {
+          "value": "1",
+          "label": {
+            "en": "Paris 1er",
+            "fr": "Paris 1er",
+            "de": "Paris 1er",
+            "es": "Paris 1er"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+            "en": "Paris 2e",
+            "fr": "Paris 2e",
+            "de": "Paris 2e",
+            "es": "Paris 2e"
+          }
+        },
+        {
+          "value": "3",
+          "label": {
+            "en": "Paris 3e",
+            "fr": "Paris 3e",
+            "de": "Paris 3e",
+            "es": "Paris 3e"
+          }
+        },
+        {
+          "value": "4",
+          "label": {
+            "en": "Paris 4e",
+            "fr": "Paris 4e",
+            "de": "Paris 4e",
+            "es": "Paris 4e"
+          }
+        },
+        {
+          "value": "5",
+          "label": {
+            "en": "Paris 5e",
+            "fr": "Paris 5e",
+            "de": "Paris 5e",
+            "es": "Paris 5e"
+          }
+        },
+        {
+          "value": "6",
+          "label": {
+            "en": "Paris 6e",
+            "fr": "Paris 6e",
+            "de": "Paris 6e",
+            "es": "Paris 6e"
+          }
+        },
+        {
+          "value": "7",
+          "label": {
+            "en": "Paris 7e",
+            "fr": "Paris 7e",
+            "de": "Paris 7e",
+            "es": "Paris 7e"
+          }
+        },
+        {
+          "value": "8",
+          "label": {
+            "en": "Paris 8e",
+            "fr": "Paris 8e",
+            "de": "Paris 8e",
+            "es": "Paris 8e"
+          }
+        },
+        {
+          "value": "9",
+          "label": {
+            "en": "Paris 9e",
+            "fr": "Paris 9e",
+            "de": "Paris 9e",
+            "es": "Paris 9e"
+          }
+        },
+        {
+          "value": "10",
+          "label": {
+            "en": "Paris 10e",
+            "fr": "Paris 10e",
+            "de": "Paris 10e",
+            "es": "Paris 10e"
+          }
+        },
+        {
+          "value": "11",
+          "label": {
+            "en": "Paris 11e",
+            "fr": "Paris 11e",
+            "de": "Paris 11e",
+            "es": "Paris 11e"
+          }
+        },
+        {
+          "value": "12",
+          "label": {
+            "en": "Paris 12e",
+            "fr": "Paris 12e",
+            "de": "Paris 12e",
+            "es": "Paris 12e"
+          }
+        },
+        {
+          "value": "13",
+          "label": {
+            "en": "Paris 13e",
+            "fr": "Paris 13e",
+            "de": "Paris 13e",
+            "es": "Paris 13e"
+          }
+        },
+        {
+          "value": "14",
+          "label": {
+            "en": "Paris 14e",
+            "fr": "Paris 14e",
+            "de": "Paris 14e",
+            "es": "Paris 14e"
+          }
+        },
+        {
+          "value": "15",
+          "label": {
+            "en": "Paris 15e",
+            "fr": "Paris 15e",
+            "de": "Paris 15e",
+            "es": "Paris 15e"
+          }
+        },
+        {
+          "value": "16",
+          "label": {
+            "en": "Paris 16e",
+            "fr": "Paris 16e",
+            "de": "Paris 16e",
+            "es": "Paris 16e"
+          }
+        },
+        {
+          "value": "17",
+          "label": {
+            "en": "Paris 17e",
+            "fr": "Paris 17e",
+            "de": "Paris 17e",
+            "es": "Paris 17e"
+          }
+        },
+        {
+          "value": "18",
+          "label": {
+            "en": "Paris 18e",
+            "fr": "Paris 18e",
+            "de": "Paris 18e",
+            "es": "Paris 18e"
+          }
+        },
+        {
+          "value": "19",
+          "label": {
+            "en": "Paris 19e",
+            "fr": "Paris 19e",
+            "de": "Paris 19e",
+            "es": "Paris 19e"
+          }
+        },
+        {
+          "value": "20",
+          "label": {
+            "en": "Paris 20e",
+            "fr": "Paris 20e",
+            "de": "Paris 20e",
+            "es": "Paris 20e"
+          }
+        }
+      ]
     },
     {
       "key": "refresh_interval",
@@ -210,10 +410,10 @@
         "es": "Ascensor o escalera mecánica averiados"
       },
       "description": {
-        "en": "A lift, escalator or moving walkway of a followed station goes out of order.",
-        "fr": "Un ascenseur, escalator ou trottoir roulant d'une gare suivie tombe en panne.",
-        "de": "Ein Aufzug, eine Rolltreppe oder ein Fahrsteig eines verfolgten Bahnhofs fällt aus.",
-        "es": "Un ascensor, escalera mecánica o pasillo rodante de una estación seguida se avería."
+        "en": "A lift, escalator or moving walkway of a followed station or district goes out of order.",
+        "fr": "Un ascenseur, escalator ou trottoir roulant d'une gare ou d'un arrondissement suivi tombe en panne.",
+        "de": "Ein Aufzug, eine Rolltreppe oder ein Fahrsteig eines verfolgten Bahnhofs oder Arrondissements fällt aus.",
+        "es": "Un ascensor, escalera mecánica o pasillo rodante de una estación o distrito seguido se avería."
       },
       "fields": [
         {
@@ -222,16 +422,16 @@
           "source": "devices",
           "required": false,
           "label": {
-            "en": "Stations",
-            "fr": "Gares",
-            "de": "Bahnhöfe",
-            "es": "Estaciones"
+            "en": "Stations or districts",
+            "fr": "Gares ou arrondissements",
+            "de": "Bahnhöfe oder Arrondissements",
+            "es": "Estaciones o distritos"
           },
           "description": {
-            "en": "Empty: any followed station.",
-            "fr": "Vide : n'importe quelle gare suivie.",
-            "de": "Leer: jeder verfolgte Bahnhof.",
-            "es": "Vacío: cualquier estación seguida."
+            "en": "Empty: any followed station or district.",
+            "fr": "Vide : n'importe quelle gare ou arrondissement suivi.",
+            "de": "Leer: jeder verfolgte Bahnhof oder jedes Arrondissement.",
+            "es": "Vacío: cualquier estación o distrito seguido."
           }
         },
         {
@@ -286,10 +486,10 @@
           "key": "station_name",
           "type": "string",
           "label": {
-            "en": "Station",
-            "fr": "Gare",
-            "de": "Bahnhof",
-            "es": "Estación"
+            "en": "Station or district",
+            "fr": "Gare ou arrondissement",
+            "de": "Bahnhof oder Arrondissement",
+            "es": "Estación o distrito"
           }
         },
         {
@@ -316,20 +516,20 @@
           "key": "out_of_order",
           "type": "number",
           "label": {
-            "en": "Out of order in the station",
-            "fr": "En panne dans la gare",
-            "de": "Außer Betrieb im Bahnhof",
-            "es": "Fuera de servicio en la estación"
+            "en": "Out of order in the station or district",
+            "fr": "En panne dans la gare ou l'arrondissement",
+            "de": "Außer Betrieb im Bahnhof oder Arrondissement",
+            "es": "Fuera de servicio en la estación o distrito"
           }
         },
         {
           "key": "total",
           "type": "number",
           "label": {
-            "en": "Equipment in the station",
-            "fr": "Équipements de la gare",
-            "de": "Anlagen im Bahnhof",
-            "es": "Equipos de la estación"
+            "en": "Equipment of the station or district",
+            "fr": "Équipements de la gare ou de l'arrondissement",
+            "de": "Anlagen des Bahnhofs oder Arrondissements",
+            "es": "Equipos de la estación o distrito"
           }
         }
       ]
@@ -343,10 +543,10 @@
         "es": "Ascensor o escalera mecánica de nuevo en servicio"
       },
       "description": {
-        "en": "An equipment of a followed station that was out of order works again.",
-        "fr": "Un équipement en panne d'une gare suivie fonctionne de nouveau.",
-        "de": "Eine gestörte Anlage eines verfolgten Bahnhofs funktioniert wieder.",
-        "es": "Un equipo averiado de una estación seguida vuelve a funcionar."
+        "en": "An equipment of a followed station or district that was out of order works again.",
+        "fr": "Un équipement en panne d'une gare ou d'un arrondissement suivi fonctionne de nouveau.",
+        "de": "Eine gestörte Anlage eines verfolgten Bahnhofs oder Arrondissements funktioniert wieder.",
+        "es": "Un equipo averiado de una estación o distrito seguido vuelve a funcionar."
       },
       "fields": [
         {
@@ -355,16 +555,16 @@
           "source": "devices",
           "required": false,
           "label": {
-            "en": "Stations",
-            "fr": "Gares",
-            "de": "Bahnhöfe",
-            "es": "Estaciones"
+            "en": "Stations or districts",
+            "fr": "Gares ou arrondissements",
+            "de": "Bahnhöfe oder Arrondissements",
+            "es": "Estaciones o distritos"
           },
           "description": {
-            "en": "Empty: any followed station.",
-            "fr": "Vide : n'importe quelle gare suivie.",
-            "de": "Leer: jeder verfolgte Bahnhof.",
-            "es": "Vacío: cualquier estación seguida."
+            "en": "Empty: any followed station or district.",
+            "fr": "Vide : n'importe quelle gare ou arrondissement suivi.",
+            "de": "Leer: jeder verfolgte Bahnhof oder jedes Arrondissement.",
+            "es": "Vacío: cualquier estación o distrito seguido."
           }
         },
         {
@@ -419,10 +619,10 @@
           "key": "station_name",
           "type": "string",
           "label": {
-            "en": "Station",
-            "fr": "Gare",
-            "de": "Bahnhof",
-            "es": "Estación"
+            "en": "Station or district",
+            "fr": "Gare ou arrondissement",
+            "de": "Bahnhof oder Arrondissement",
+            "es": "Estación o distrito"
           }
         },
         {
@@ -449,20 +649,20 @@
           "key": "out_of_order",
           "type": "number",
           "label": {
-            "en": "Out of order in the station",
-            "fr": "En panne dans la gare",
-            "de": "Außer Betrieb im Bahnhof",
-            "es": "Fuera de servicio en la estación"
+            "en": "Out of order in the station or district",
+            "fr": "En panne dans la gare ou l'arrondissement",
+            "de": "Außer Betrieb im Bahnhof oder Arrondissement",
+            "es": "Fuera de servicio en la estación o distrito"
           }
         },
         {
           "key": "total",
           "type": "number",
           "label": {
-            "en": "Equipment in the station",
-            "fr": "Équipements de la gare",
-            "de": "Anlagen im Bahnhof",
-            "es": "Equipos de la estación"
+            "en": "Equipment of the station or district",
+            "fr": "Équipements de la gare ou de l'arrondissement",
+            "de": "Anlagen des Bahnhofs oder Arrondissements",
+            "es": "Equipos de la estación o distrito"
           }
         }
       ]
@@ -478,10 +678,10 @@
         "es": "Resumir ascensores y escaleras mecánicas"
       },
       "description": {
-        "en": "State of the equipment of your followed stations, with a sentence ready to send.",
-        "fr": "État des équipements de vos gares suivies, avec une phrase prête à envoyer.",
-        "de": "Zustand der Anlagen deiner verfolgten Bahnhöfe, mit einem fertigen Satz.",
-        "es": "Estado de los equipos de sus estaciones seguidas, con una frase lista para enviar."
+        "en": "State of the equipment of your followed stations and districts, with a sentence ready to send.",
+        "fr": "État des équipements de vos gares et arrondissements suivis, avec une phrase prête à envoyer.",
+        "de": "Zustand der Anlagen deiner verfolgten Bahnhöfe und Arrondissements, mit einem fertigen Satz.",
+        "es": "Estado de los equipos de sus estaciones y distritos seguidos, con una frase lista para enviar."
       },
       "timeout_seconds": 15,
       "fields": [
@@ -491,16 +691,16 @@
           "source": "devices",
           "required": false,
           "label": {
-            "en": "Stations",
-            "fr": "Gares",
-            "de": "Bahnhöfe",
-            "es": "Estaciones"
+            "en": "Stations or districts",
+            "fr": "Gares ou arrondissements",
+            "de": "Bahnhöfe oder Arrondissements",
+            "es": "Estaciones o distritos"
           },
           "description": {
-            "en": "Empty: every followed station.",
-            "fr": "Vide : toutes les gares suivies.",
-            "de": "Leer: alle verfolgten Bahnhöfe.",
-            "es": "Vacío: todas las estaciones seguidas."
+            "en": "Empty: every followed station and district.",
+            "fr": "Vide : toutes les gares et arrondissements suivis.",
+            "de": "Leer: alle verfolgten Bahnhöfe und Arrondissements.",
+            "es": "Vacío: todas las estaciones y distritos seguidos."
           }
         }
       ],
@@ -562,16 +762,16 @@
     {
       "key": "station",
       "label": {
-        "en": "Station lifts and escalators",
-        "fr": "Ascenseurs de la gare",
-        "de": "Aufzüge im Bahnhof",
-        "es": "Ascensores de la estación"
+        "en": "Lifts and escalators",
+        "fr": "Ascenseurs et escalators",
+        "de": "Aufzüge und Rolltreppen",
+        "es": "Ascensores y escaleras"
       },
       "description": {
-        "en": "The lifts and escalators of a station, out of order first.",
-        "fr": "Les ascenseurs et escalators d'une gare, en panne d'abord.",
-        "de": "Die Aufzüge und Rolltreppen eines Bahnhofs, gestörte zuerst.",
-        "es": "Los ascensores y escaleras mecánicas de una estación, averiados primero."
+        "en": "The lifts and escalators of a station or a district of Paris, out of order first.",
+        "fr": "Les ascenseurs et escalators d'une gare ou d'un arrondissement de Paris, en panne d'abord.",
+        "de": "Die Aufzüge und Rolltreppen eines Bahnhofs oder Pariser Arrondissements, gestörte zuerst.",
+        "es": "Los ascensores y escaleras mecánicas de una estación o distrito de París, averiados primero."
       },
       "icon": "chevrons-up",
       "settings": [
@@ -581,16 +781,16 @@
           "source": "devices",
           "required": false,
           "label": {
-            "en": "Station",
-            "fr": "Gare",
-            "de": "Bahnhof",
-            "es": "Estación"
+            "en": "Station or district",
+            "fr": "Gare ou arrondissement",
+            "de": "Bahnhof oder Arrondissement",
+            "es": "Estación o distrito"
           },
           "description": {
-            "en": "Empty: the first followed station.",
-            "fr": "Vide : la première gare suivie.",
-            "de": "Leer: der erste verfolgte Bahnhof.",
-            "es": "Vacío: la primera estación seguida."
+            "en": "Empty: the first one followed.",
+            "fr": "Vide : le premier lieu suivi.",
+            "de": "Leer: der erste verfolgte Ort.",
+            "es": "Vacío: el primer lugar seguido."
           }
         },
         {

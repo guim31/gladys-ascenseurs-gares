@@ -1,4 +1,4 @@
-# Aufzüge in SNCF-Bahnhöfen
+# Aufzüge und Rolltreppen: SNCF-Bahnhöfe und Paris
 
 Der **Zustand der Aufzüge, Rolltreppen und Fahrsteige** der SNCF-Bahnhöfe (Frankreich), in Betrieb
 oder außer Betrieb, gelesen aus dem Open-Data-Portal der SNCF. Rund 2.500 Anlagen in etwa 600
@@ -7,12 +7,15 @@ Bahnhöfen, die SNCF Gares & Connexions betreibt. **Kein Konto, kein Schlüssel.
 Inoffizielle Integration, ohne Verbindung zur SNCF. Ohne die Hardware entwickelt (und ohne eigenen
 Datenstrom): die Daten wurden am 29.10.2026 live geprüft, Rückmeldungen sind willkommen.
 
+Außerdem: die **Aufzüge und Rolltreppen im Straßenraum der Stadt Paris** (Parks, Viadukte,
+Petite Ceinture…), in Echtzeit fernüberwacht, pro Arrondissement. Ohne Verbindung zur Stadt Paris.
+
 ## Was du bekommst
 
 - Ein **Gerät pro Bahnhof**, den du hinzufügst: ein Sensor pro Aufzug, Rolltreppe oder Fahrsteig
   (1 = in Betrieb, 0 = außer Betrieb), dazu drei Übersichtssensoren: Anlagen außer Betrieb, Anlagen
   mit unbekanntem Zustand und „Alles in Betrieb“.
-- Ein **Widget** „Aufzüge im Bahnhof“: die Anlagen eines Bahnhofs, gestörte zuerst, in Rot, Grau
+- Ein **Widget** „Aufzüge und Rolltreppen“: die Anlagen eines Bahnhofs, gestörte zuerst, in Rot, Grau
   oder Grün.
 - Zwei **Szenen-Auslöser**: ein Aufzug oder eine Rolltreppe fällt aus, eine Anlage ist wieder in
   Betrieb, für jeden Bahnhof oder die gewählten, und auf Wunsch für eine Art von Anlage.
@@ -23,7 +26,7 @@ Datenstrom): die Daten wurden am 29.10.2026 live geprüft, Rückmeldungen sind w
 ## Voraussetzungen
 
 - Gladys Assistant **5.3.0** oder neuer.
-- Internetzugang für Gladys: die Daten kommen von `ressources.data.sncf.com`.
+- Internetzugang für Gladys: die Daten kommen von `ressources.data.sncf.com` und, für Paris, von `opendata.paris.fr`.
 - Kein Konto, kein API-Schlüssel.
 
 ## Installation
@@ -39,6 +42,7 @@ Datenstrom): die Daten wurden am 29.10.2026 live geprüft, Rückmeldungen sind w
 | Einstellung                       | Wirkung                                                                                                      |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | Bahnhöfe                          | Die Namen deiner Bahnhöfe, durch `;` getrennt (höchstens 10), z. B. `Toulouse Matabiau; Paris Saint-Lazare`. |
+| Pariser Arrondissements           | Die Arrondissements, deren Aufzüge und Rolltreppen im Straßenraum du willst (Kontrollkästchen).              |
 | Aktualisierung                    | Alle 10, 15 (Standard) oder 30 Minuten. Die SNCF berechnet die Zustände stündlich neu.                       |
 | Sprache der Namen und Nachrichten | Sprache der Übersichtssensoren, des Widgets und des Szenensatzes. Standard: Französisch.                     |
 
@@ -56,6 +60,16 @@ funktioniert). Ein Teilname, zum Beispiel eine Stadt, listet ihre Bahnhöfe mit 
 
 Ein hinzugefügter Bahnhof bleibt verfolgt, auch wenn du seinen Namen später aus den Einstellungen
 entfernst.
+
+### Pariser Arrondissements hinzufügen
+
+1. Wähle ein oder mehrere Arrondissements unter **Pariser Arrondissements** und speichere.
+2. Der Tab **Entdecken** bietet ein Gerät „Paris 13e · Aufzüge und Rolltreppen“ pro Arrondissement
+   mit fernüberwachten Anlagen an (derzeit das 12., 13., 15. und 17.).
+3. Füge die gewünschten hinzu. Die Schaltfläche **Status** zeigt, wie viele Anlagen jedes gewählte
+   Arrondissement hat.
+
+Bahnhöfe und Arrondissements lassen sich kombinieren.
 
 ### Prüfen
 
@@ -78,12 +92,16 @@ Französisch: so steht er im Bahnhof. Kennt die SNCF den Zustand einer Anlage ni
 Sensor den letzten bekannten Wert und der Zähler „Zustand unbekannt“ zeigt es an. Fügt die SNCF dem
 Bahnhof eine Anlage hinzu, bietet der Tab „Entdecken“ an, das Gerät zu **aktualisieren**.
 
+Ein Pariser Arrondissement ist ein Gerät „Paris 13e · Aufzüge und Rolltreppen“ mit denselben
+Funktionen. Eine Anlage heißt nach ihrer Adresse: „Ascenseur - 147 rue Cardinet (A)“. Anlagen der
+Stadt ohne Fernüberwachung haben nie einen Zustand: sie werden nicht angeboten.
+
 ## Dashboard-Widget
 
-„Aufzüge im Bahnhof“ zeigt die Anlagen eines Bahnhofs (den ersten verfolgten, wenn keiner gewählt
+„Aufzüge und Rolltreppen“ zeigt die Anlagen eines Bahnhofs (den ersten verfolgten, wenn keiner gewählt
 ist): gestörte zuerst (Rot), unbekannte (Grau), dann die in Betrieb (Grün). Höchstens zehn Zeilen,
 die übrigen werden darunter gezählt. Die Einstellung „Anlagen in Betrieb ausblenden“ zeigt nur die
-Probleme. Antwortet das SNCF-Portal seit drei Stunden nicht, zeigt das Widget es an.
+Probleme. Antwortet das SNCF-Portal (oder das der Stadt Paris) seit drei Stunden nicht, zeigt das Widget es an.
 
 ## Szenen-Auslöser
 
@@ -124,6 +142,9 @@ Ausgaben: `sentence` (Satz), `out_of_order` (außer Betrieb), `unknown` (unbekan
 - Die Integration liest die Zustände aller deiner Bahnhöfe mit **einer Anfrage** pro Zyklus,
   gefiltert auf sie, und die Bahnhofsliste einmal pro Tag. Die anonyme Nutzung ist vom Portal
   begrenzt (einige Tausend Anfragen pro Tag): die Integration bleibt weit darunter.
+- Paris: der Datensatz „Ascenseurs / Escalators - Télé-surveillance temps réel“ der Stadt Paris
+  (`opendata.paris.fr`), vom Überwachungsdienst bei jeder Störung oder Reparatur befüllt. Eine
+  Anfrage pro Zyklus, etwa zehn kB, für alle gewählten Arrondissements.
 
 ## Fehlerbehebung
 
@@ -134,7 +155,7 @@ Ausgaben: `sentence` (Satz), `out_of_order` (außer Betrieb), `unknown` (unbekan
   versucht es im nächsten Zyklus erneut.
 - **Ein Sensor ändert sich nie**: manche Anlagen bleiben lange im unbekannten Zustand; der Zähler
   „Zustand unbekannt“ zeigt es.
-- Protokolle: **Integrationen → Ascenseurs en gare SNCF → Protokolle**; `LOG_LEVEL=debug` für
+- Protokolle: **Integrationen → Ascenseurs gares SNCF et Paris → Protokolle**; `LOG_LEVEL=debug` für
   jede Abfrage.
 
 ## Einschränkungen
@@ -144,9 +165,13 @@ Ausgaben: `sentence` (Satz), `out_of_order` (außer Betrieb), `unknown` (unbekan
   Île-de-France Mobilités erfordert ein Konto: nicht genutzt.
 - Ein Zustand kann eine Stunde alt sein, manchmal mehr: prüfe vor der Reise, wenn es wichtig ist.
 - Die Namen der Anlagen sind die der SNCF, auf Französisch.
+- Paris: nur die Anlagen im Straßenraum, die die Stadt verwaltet (etwa dreißig, davon 25
+  fernüberwacht), nicht die Metro. Manche stehen im Datensatz seit Monaten auf „außer Betrieb“: so
+  veröffentlicht es die Stadt.
 
 ## Danksagung
 
 - Daten: SNCF Gares & Connexions, Open-Data-Portal der SNCF (`ressources.data.sncf.com`), unter der
   ODbL-Lizenz.
 - Gebaut auf dem Integrations-SDK von Gladys Assistant. Ohne Verbindung zur SNCF.
+- Daten Paris: Stadt Paris, `opendata.paris.fr`, unter der Lizenz ODbL.

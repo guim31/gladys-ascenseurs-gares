@@ -1,4 +1,4 @@
-# SNCF station lifts and escalators
+# Lifts and escalators: SNCF stations and Paris
 
 The **state of the lifts, escalators and moving walkways** of SNCF stations (France), in service or
 out of order, read from the SNCF open data portal. About 2,500 pieces of equipment in some 600
@@ -7,12 +7,15 @@ stations managed by SNCF Gares & Connexions. **No account, no key.**
 Unofficial integration, not affiliated with SNCF. Developed without the hardware (and without a
 dedicated feed): the data was checked live on 2026-10-29, feedback is welcome.
 
+Also: the **street lifts and escalators of the City of Paris** (parks, viaducts, Petite
+Ceinture…), remotely monitored in real time, by district. Not affiliated with the City of Paris.
+
 ## What you get
 
 - One **device per station** you add: one sensor per lift, escalator or moving walkway (1 = in
   service, 0 = out of order), plus three summary sensors: equipment out of order, equipment in an
   unknown state, and "All in service".
-- A **widget** "Station lifts and escalators": the equipment of a station, out of order first, in
+- A **widget** "Lifts and escalators": the equipment of a station, out of order first, in
   red, grey or green.
 - Two **scene triggers**: a lift or escalator goes out of order, and one comes back in service, for
   any station or the ones you pick, and for one kind of equipment if you want.
@@ -22,7 +25,7 @@ dedicated feed): the data was checked live on 2026-10-29, feedback is welcome.
 ## Requirements
 
 - Gladys Assistant **5.3.0** or later.
-- Internet access from Gladys: the data comes from `ressources.data.sncf.com`.
+- Internet access from Gladys: the data comes from `ressources.data.sncf.com` and, for Paris, from `opendata.paris.fr`.
 - No account, no API key.
 
 ## Installation
@@ -38,6 +41,7 @@ dedicated feed): the data was checked live on 2026-10-29, feedback is welcome.
 | Setting                        | What it does                                                                                             |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------- |
 | Stations                       | The names of your stations, separated by `;` (10 at most), e.g. `Toulouse Matabiau; Paris Saint-Lazare`. |
+| Districts of Paris             | The districts (arrondissements) whose street lifts and escalators you want (check boxes).                |
 | Refresh                        | Every 10, 15 (default) or 30 minutes. SNCF recomputes the states every hour.                             |
 | Language of names and messages | Language of the summary feature names, of the widget and of the scene sentence. French by default.       |
 
@@ -53,6 +57,16 @@ Marseille Blancarde), ten at most. An 8-digit UIC code also works.
 3. Add the ones you want to Gladys.
 
 A station added stays followed even if you remove its name from the settings later.
+
+### Add districts of Paris
+
+1. Tick one or more districts in **Districts of Paris** and save.
+2. The **Discover** tab offers one device "Paris 13e · lifts and escalators" per district that has
+   remotely monitored equipment (today the 12th, 13th, 15th and 17th).
+3. Add the ones you want. The **Status** button says how many pieces of equipment each ticked
+   district has.
+
+Stations and districts can be combined.
 
 ### Check
 
@@ -75,12 +89,16 @@ name shown in the station. When SNCF does not know the state of an equipment, it
 last known value and the "Unknown state" counter says so. If SNCF adds an equipment to the station,
 the Discover tab offers to **update** the device.
 
+A district of Paris is a device "Paris 13e · lifts and escalators", with the same features. Its
+equipment is named after its address: "Ascenseur - 147 rue Cardinet (A)". The equipment of the City
+that is not remotely monitored never has a state: it is not offered.
+
 ## Dashboard widget
 
-"Station lifts and escalators" shows the equipment of one station (the first followed one if none is
+"Lifts and escalators" shows the equipment of one station (the first followed one if none is
 picked): out of order first (red), unknown (grey), then in service (green). Ten rows at most, the
 others are counted below. The setting "Hide equipment in service" keeps only the problems. When the
-SNCF portal has not answered for three hours, the widget says so.
+SNCF portal (or the City of Paris one) has not answered for three hours, the widget says so.
 
 ## Scene triggers
 
@@ -117,6 +135,9 @@ step).
 - The integration reads the states of all your stations in **one request** per cycle, filtered on
   them, and the station list once a day. Anonymous use is limited by the portal (a few thousand
   requests a day): the integration stays far below.
+- Paris: the dataset "Ascenseurs / Escalators - Télé-surveillance temps réel" of the City of Paris
+  (`opendata.paris.fr`), fed by the monitoring company at every failure or repair. One request per
+  cycle, about ten kB, for all the districts chosen.
 
 ## Troubleshooting
 
@@ -126,7 +147,7 @@ step).
   next cycle.
 - **A sensor never changes**: some equipment stays in an unknown state for a long time; the "Unknown
   state" counter shows it.
-- Logs: **Integrations → Ascenseurs en gare SNCF → Logs**; set `LOG_LEVEL=debug` for every reading.
+- Logs: **Integrations → Ascenseurs gares SNCF et Paris → Logs**; set `LOG_LEVEL=debug` for every reading.
 
 ## Limitations
 
@@ -135,9 +156,12 @@ step).
   Mobilités needs an account: not used.
 - A state can be up to an hour old, sometimes more: check before travelling if it matters.
 - The equipment names are those of SNCF, in French.
+- Paris: only the street equipment managed by the City (about thirty, 25 remotely monitored), not
+  the metro. Some stay "out of order" for months in the dataset: that is what the City publishes.
 
 ## Credits
 
 - Data: SNCF Gares & Connexions, SNCF open data portal (`ressources.data.sncf.com`), under the
   ODbL licence.
 - Built on the Gladys Assistant integration SDK. Not affiliated with SNCF.
+- Paris data: City of Paris, `opendata.paris.fr`, under the ODbL licence.

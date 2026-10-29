@@ -33,9 +33,10 @@ pushing.
 ```
 index.js                          SDK wiring only: registerHandlers() then connect()
 src/app.js                        every SDK handler -> service; configuration action
-src/service.js                    names -> stations, timer, discovery, states, triggers, status
+src/service.js                    names -> stations, districts, timer, discovery, states, triggers, status
 src/sncf.js                       the SNCF portal: station list, equipment states, name matching
-src/devices.js                    the Gladys device of a station, its states
+src/paris.js                      the City of Paris: street lifts and escalators, by district
+src/devices.js                    the Gladys device of a site (station or district), its states
 src/scenes.js                     scene action handler (manifest `scene_actions`)
 src/widgets.js                    dashboard widget handler (manifest `widgets`)
 src/http.js                       downloads: timeouts, size caps
@@ -46,6 +47,7 @@ docs/{en,fr,de,es}.md             user documentation, re-hosted by Gladys (en an
 test/                             node --test, against the SDK's fake Gladys (integration-sdk/testing)
 test/helpers/world.js             fake Gladys + fake fetch on the fixtures + manual clock
 test/fixtures/sncf                real answers of the SNCF portal (2026-10-29)
+test/fixtures/paris               the whole City of Paris dataset (2026-10-29)
 .github/scripts/release.mjs       release helpers (manifest bump, changelog), tested in test/
 ```
 
@@ -287,3 +289,22 @@ long, et sur un « Sie »/« Ihr… » de politesse en allemand. Le store exige 
 - Le filtre par équipement précis n'existe pas (un champ `source: "devices"` ne liste que des
   appareils) : la doc renvoie au déclencheur natif « état d'un appareil » sur la fonctionnalité.
 - `gladys_version >=5.3.0` à cause de `countries` et `keywords`.
+
+## Ascenseurs de voirie de la Ville de Paris (1.1, 29/10/2026)
+
+- Jeu `ascenseurs-escalators-tele-surveillance-temps-reel` d'`opendata.paris.fr` (Opendatasoft v2.1, sans clé,
+  ODbL), alimenté en push par le télésurveilleur (GETRALINE). 33 enregistrements le 29/10 : 25 télésurveillés
+  (`En fonctionnement` / `En panne`), 8 `Non télé-surveillé` (jamais d'état : écartés). Sept arrondissements ; ceux
+  qui ont des équipements suivis : 12e (4), 13e (14), 15e (3), 17e (4). Des « En panne » datent de 2024 : c'est la
+  donnée publiée.
+- `identifiant` (« 13904_A ») unique et stable, clé `eq-<identifiant en minuscules>` ; le suffixe `_A` sépare deux
+  appareils à la même adresse. `nom_equipement` : `ASCENSEUR…`, `ESCALIER…` (escalator), `EPMR…` (élévateur PMR,
+  classé ascenseur). Le champ `coordonnees_geograhiques` (sic) n'est pas lu.
+- Un appareil par arrondissement (`externalIds('paris', '13')`, param `paris_district`), réglage `paris_districts`
+  (`multi_select`, Gladys ≥ 5.2.0). Pas de rayon « autour de la maison » : le conteneur ne connaît pas la position
+  de la maison, et l'arrondissement garde des identifiants stables.
+- Le service manipule des « sites » : UUID de gare ou `paris-<n>`. Chaque source a son `okAt`, son erreur et sa
+  fenêtre de déclencheurs : une panne d'un portail ne bloque pas l'autre, et le widget n'affiche « données de plus
+  de 3 h » que pour la source concernée.
+- Autres sources cherchées le 29/10 : IDFM `etat-des-ascenseurs` (403 sans compte), Dispotrains (archives
+  seulement), STAR Rennes (déjà couvert par William-De71/gladys-star-rennes). Rien d'autre sans clé.

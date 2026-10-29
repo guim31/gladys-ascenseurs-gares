@@ -4,6 +4,8 @@
 // the rest of the code never deals with strings, blanks or `undefined`.
 // -----------------------------------------------------------------------------
 
+import { DISTRICTS } from './paris.js';
+
 export const LANGUAGES = ['en', 'fr', 'de', 'es'];
 
 // Seconds between two readings of the portal. SNCF recomputes the states
@@ -16,6 +18,7 @@ export const MAX_STATIONS = 10;
 
 export const DEFAULT_CONFIG = {
   stations: '',
+  paris_districts: [],
   language: 'fr',
   refresh_interval: '900',
 };
@@ -36,6 +39,29 @@ export function stationQueries(value) {
 }
 
 /**
+ * The districts of Paris chosen (multi_select): "1" to "20", sorted, without
+ * duplicates. An array, or (a value stored as text) a JSON array or a list.
+ */
+export function districtChoices(value) {
+  let list = value;
+  if (!Array.isArray(list)) {
+    const text = String(value ?? '').trim();
+    try {
+      list = text.startsWith('[') ? JSON.parse(text) : text.split(/[\s;,]+/);
+    } catch {
+      list = [];
+    }
+  }
+  if (!Array.isArray(list)) {
+    return [];
+  }
+  const chosen = new Set(
+    list.map((item) => String(Number(item))).filter((d) => DISTRICTS.includes(d)),
+  );
+  return DISTRICTS.filter((district) => chosen.has(district));
+}
+
+/**
  * @param {Record<string, unknown>} raw the configuration returned by the SDK
  */
 export function normalizeConfig(raw = {}) {
@@ -45,6 +71,7 @@ export function normalizeConfig(raw = {}) {
     : DEFAULT_CONFIG.refresh_interval;
   return {
     stations: stationQueries(source.stations),
+    parisDistricts: districtChoices(source.paris_districts),
     language: LANGUAGES.includes(source.language) ? source.language : DEFAULT_CONFIG.language,
     refreshSeconds: Number(interval),
   };

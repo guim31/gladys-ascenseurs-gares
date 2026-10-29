@@ -15,7 +15,7 @@ test('the start is one info line', async (t) => {
   const world = await createWorld();
   t.after(() => world.app.stop());
   assert.deepEqual(lines.map(strip), [
-    '[INFO] [ascenseurs-gares] Started: 2 station name(s) typed, 0 station(s) added',
+    '[INFO] [ascenseurs-gares] Started: 2 station name(s) typed, 0 district(s) of Paris, 0 device(s) added',
   ]);
 });
 
@@ -30,7 +30,7 @@ test('a normal reading cycle writes nothing at info, one line at debug', async (
   assert.deepEqual(lines, []);
   const debug = captureLogs(t, 'debug');
   await cycle(world);
-  assert.deepEqual(debug.map(strip), ['[DEBUG] [ascenseurs-gares] 2 station(s) read']);
+  assert.deepEqual(debug.map(strip), ['[DEBUG] [ascenseurs-gares] 2 site(s) read from sncf']);
 });
 
 test('a portal down at every cycle: one warning, then one line at recovery', async (t) => {

@@ -10,6 +10,18 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+### Added
+
+- The street lifts and escalators of the City of Paris (parks, viaducts, Petite
+  Ceinture…), remotely monitored in real time: tick districts of Paris in the
+  configuration, add them from the Discover tab. One device per district, with
+  the same sensors, widget, scene triggers and summary as a station.
+
+### Changed
+
+- Name "Ascenseurs gares SNCF et Paris"; texts of the widget,
+  triggers and scene action widened to the districts of Paris (keys unchanged).
+
 ## [1.0.0] - 2026-10-29
 
 ### Added
