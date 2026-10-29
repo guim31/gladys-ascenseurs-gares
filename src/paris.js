@@ -18,13 +18,13 @@ import { createLogger } from '@gladysassistant/integration-sdk';
 import { HttpError, getJson } from './http.js';
 import { STATES } from './sncf.js';
 
+const logger = createLogger({ name: 'ascenseurs-gares' });
+
 export const PARIS_URL =
   'https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/ascenseurs-escalators-tele-surveillance-temps-reel/exports/json?select=identifiant%2Cnom_equipement%2Carrondissement%2Cadresse%2Cequipement%2Cequipement_telesurveille%2Cstatut';
 
 // Device type of a district, and the site ids the service uses for it
 // ("paris-13"), next to the station UUIDs of SNCF.
-const logger = createLogger({ name: 'ascenseurs-gares' });
-
 export const PARIS_TYPE = 'paris';
 export const DISTRICTS = Array.from({ length: 20 }, (_, i) => String(i + 1));
 const SITE = /^paris-([1-9]|1[0-9]|20)$/;
@@ -148,7 +148,7 @@ export async function readParis(fetchImpl, sites) {
     const status = plain(record?.statut);
     // Not monitored: no state, ever. A missing flag with a state is monitored.
     const monitored = flag
-      ? flag === 'tele-surveille'
+      ? /^tele-? ?surveille$/.test(flag)
       : Boolean(status) && !status.startsWith('non tele');
     if (!result.has(site) || !/^[\w-]{1,40}$/.test(id) || !monitored) {
       continue;
