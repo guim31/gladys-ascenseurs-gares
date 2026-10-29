@@ -43,7 +43,7 @@ const optionValues = (field) => field.options.map((option) => option.value);
 const field = (list, key) => list.find((entry) => entry.key === key);
 
 test('identity: name, image, cover, cloud transport, services category, France', () => {
-  assert.equal(manifest.name, 'Ascenseurs en gare SNCF');
+  assert.equal(manifest.name, 'Ascenseurs gares SNCF et Paris');
   assert.equal(manifest.type, 'device');
   assert.match(manifest.docker_image, /^ghcr\.io\/guim31\/gladys-ascenseurs-gares:/);
   assert.equal(

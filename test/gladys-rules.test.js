@@ -1,8 +1,9 @@
 // -----------------------------------------------------------------------------
 // Conformity with the Gladys core, on every device built from the real
 // answers of the SNCF portal (six stations, from 2 to 76 equipment, OK, KO and
-// unknown states, two equipment sharing one label), in every feature-name
-// language.
+// unknown states, two equipment sharing one label) and of the City of Paris
+// (four districts, 3 to 14 street lifts and escalators), in every
+// feature-name language.
 //
 // The table (test/fixtures/gladys-feature-table.json) is extracted from the
 // core code: a category/type couple missing there shows as "undefined" or
@@ -28,13 +29,14 @@ for (const language of LANGUAGES) {
         language,
         stations:
           'Paris Saint-Lazare; Haussmann St Lazare; toulouse-matabiau; Méru; Marseille; Montparnasse',
+        paris_districts: ['12', '13', '15', '17'],
       },
     });
     t.after(() => world.app.stop());
     const devices = world.fake.discoveredDevices;
     assert.deepEqual(
       devices.map((device) => device.features.length - 3).sort((a, b) => a - b),
-      [2, 6, 25, 35, 63, 76],
+      [2, 3, 4, 4, 6, 14, 25, 35, 63, 76],
     );
 
     const deviceIds = new Set();

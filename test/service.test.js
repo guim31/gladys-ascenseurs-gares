@@ -347,7 +347,7 @@ test('scene action: no station followed is an error the scene shows', async (t) 
   t.after(() => world.app.stop());
   const result = await world.fake.sceneAction('summary', {});
   assert.equal(result.success, false);
-  assert.match(result.error, /Aucune gare n'est suivie/);
+  assert.match(result.error, /Aucune gare ni aucun arrondissement de Paris n'est suivi/);
 });
 
 test('a station added and then removed from the names is still read, and named', async (t) => {

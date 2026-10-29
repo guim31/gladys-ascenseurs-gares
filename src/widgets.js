@@ -1,7 +1,8 @@
 // -----------------------------------------------------------------------------
 // Dashboard widget (manifest `widgets`, Gladys 5.1+).
 //
-// - station: the lifts and escalators of one followed station, one status
+// - station: the lifts and escalators of one followed station (or district
+//   of Paris), one status
 //   row each ("Ascenseur - Voie A" / "en panne"), out of order first (red),
 //   then unknown (grey), then in service (green). Ten rows at most, the
 //   others counted in a text line, replaced by a warning when the data is
@@ -13,6 +14,7 @@
 import { WIDGET_COLORS } from '@gladysassistant/integration-sdk';
 import { clip } from './devices.js';
 import { TEXT, say } from './messages.js';
+import { isParisSite } from './paris.js';
 import { STATES } from './sncf.js';
 
 export const MAX_ROWS = 10;
@@ -25,6 +27,7 @@ const COLORS = {
   [STATES.OK]: WIDGET_COLORS.SUCCESS,
 };
 
+const staleKey = (siteId) => (isParisSite(siteId) ? 'staleParis' : 'stale');
 const isOn = (value) => value === true || value === 'true' || value === 1;
 
 async function stationContent(service, { settings, language }) {
@@ -49,7 +52,7 @@ async function stationContent(service, { settings, language }) {
     ? sorted.filter((item) => item.state !== STATES.OK)
     : sorted;
   if (candidates.length === 0) {
-    return text(service.isStale() ? 'stale' : 'allOk');
+    return text(service.isStale(entry.stationId) ? staleKey(entry.stationId) : 'allOk');
   }
   const shown = candidates.slice(0, MAX_ROWS);
   const components = [
@@ -63,8 +66,8 @@ async function stationContent(service, { settings, language }) {
     },
   ];
   // One body text per card: the age of the data matters more than the count.
-  if (service.isStale()) {
-    components.push({ type: 'text', text: say(TEXT, language, 'stale') });
+  if (service.isStale(entry.stationId)) {
+    components.push({ type: 'text', text: say(TEXT, language, staleKey(entry.stationId)) });
   } else if (candidates.length > shown.length) {
     const left = candidates.length - shown.length;
     components.push({ type: 'text', text: say(TEXT, language, 'more', { count: left }) });

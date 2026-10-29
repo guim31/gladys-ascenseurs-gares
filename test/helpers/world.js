@@ -1,19 +1,20 @@
 // -----------------------------------------------------------------------------
 // A complete test world: the SDK's fake Gladys, a fake `fetch` serving the
-// real answers of the SNCF portal (captured on 2026-10-29, see
-// test/fixtures/sncf/), a manual clock, and the integration wired on top
+// real answers of the SNCF portal and of the City of Paris (captured on
+// 2026-10-29, see test/fixtures/), a manual clock, and the integration wired on top
 // through registerHandlers. Nothing touches the network.
 // -----------------------------------------------------------------------------
 
 import { readFileSync } from 'node:fs';
 import { createFakeGladys } from '@gladysassistant/integration-sdk/testing';
 import { registerHandlers } from '../../src/app.js';
+import { PARIS_URL } from '../../src/paris.js';
 import { EQUIPPED_URL, STATIONS_URL } from '../../src/sncf.js';
 
 process.env.LOG_LEVEL ??= 'silent';
 
-export const fixtureJson = (name) =>
-  JSON.parse(readFileSync(new URL(`../fixtures/sncf/${name}`, import.meta.url), 'utf8'));
+export const fixtureJson = (name, dir = 'sncf') =>
+  JSON.parse(readFileSync(new URL(`../fixtures/${dir}/${name}`, import.meta.url), 'utf8'));
 
 // 2026-10-29 17:13 in Paris, the time of the capture.
 export const FIXTURE_TIME = Date.parse('2026-10-29T16:13:00Z');
@@ -38,6 +39,7 @@ function portalRoutes(state) {
   return {
     [STATIONS_URL]: fixtureJson('stations.json'),
     [EQUIPPED_URL]: fixtureJson('equipped.json'),
+    [PARIS_URL]: () => state.paris,
     equipment: (url) => {
       const ids = idsOfQuery(url);
       return state.equipment.filter((record) => ids.includes(record.gareid));
@@ -51,7 +53,10 @@ function portalRoutes(state) {
  * The equipment queries go to `routes.equipment`. Every call is recorded in `calls`.
  */
 export function createFetch(overrides = {}) {
-  const state = { equipment: fixtureJson('equipment.json') };
+  const state = {
+    equipment: fixtureJson('equipment.json'),
+    paris: fixtureJson('records.json', 'paris'),
+  };
   const routes = { ...portalRoutes(state), ...overrides };
   const calls = [];
   const fetch = async (url, init = {}) => {
@@ -164,6 +169,15 @@ export function setState(world, label, state) {
   if (found === 0) {
     throw new Error(`no equipment labelled ${label}`);
   }
+}
+
+/** Changes the state of a Paris record (its `identifiant`) served by the City. */
+export function setParisState(world, id, statut) {
+  const record = world.network.state.paris.find((r) => r.identifiant === id);
+  if (!record) {
+    throw new Error(`no Paris equipment ${id}`);
+  }
+  record.statut = statut;
 }
 
 /** Captures what the integration logs, at a level. */

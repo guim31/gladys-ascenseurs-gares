@@ -4,6 +4,11 @@
 // the Discover tab, the states of the stations added to Gladys, and the scene
 // triggers.
 //
+// Two sources: the SNCF portal (stations) and the City of Paris (the street
+// equipment of the districts chosen, src/paris.js). A "site" is either: a
+// station UUID or a district ("paris-13"); each source has its own reading
+// time and error, an outage of one never holds the other back.
+//
 // Data flow: the station list of the portal (read once a day) turns the names
 // typed into station ids. Every station found, plus every station added to
 // Gladys, is read at the configured pace, all in one request. The stations
@@ -13,8 +18,17 @@
 
 import { createLogger } from '@gladysassistant/integration-sdk';
 import { DEFAULT_CONFIG, normalizeConfig } from './config.js';
-import { STATION_TYPE, buildStationDevice, counts, stationStates } from './devices.js';
+import { STATION_TYPE, buildStationDevice, counts, siteIds, stationStates } from './devices.js';
 import { REPORTS, lines, render } from './messages.js';
+import {
+  PARIS_TYPE,
+  districtName,
+  districtOf,
+  isDistrict,
+  isParisSite,
+  parisSite,
+  readParis,
+} from './paris.js';
 import {
   STATES,
   isStationId,
@@ -33,6 +47,15 @@ export const LIST_TTL_MS = 24 * 3600 * 1000;
 export const HEARTBEAT_MS = 12 * 3600 * 1000;
 // States older than this (the portal down for hours) are flagged in the widget.
 export const STALE_MS = 3 * 3600 * 1000;
+
+export const SOURCES = { SNCF: 'sncf', PARIS: 'paris' };
+export const sourceOf = (siteId) => (isParisSite(siteId) ? SOURCES.PARIS : SOURCES.SNCF);
+
+// The lines of the status action, per source.
+const STATUS_KEYS = {
+  [SOURCES.SNCF]: { waiting: 'waiting', read: 'read', error: 'error' },
+  [SOURCES.PARIS]: { waiting: 'parisWaiting', read: 'parisRead', error: 'parisError' },
+};
 
 export const TRIGGERS = {
   DOWN: 'equipment_down',
@@ -60,9 +83,10 @@ export class Stations {
     this.readings = new Map(); // station id → equipment[]
     this.lastKnown = new Map(); // equipment id → last state known: "ok" or "ko"
     this.names = new Map(); // station id → station name
-    this.okAt = null;
-    this.previousOkAt = null;
-    this.error = null;
+    // Per source: last good reading, the one before, last error.
+    this.sources = Object.fromEntries(
+      Object.values(SOURCES).map((name) => [name, { okAt: null, previousOkAt: null, error: null }]),
+    );
     this.discoveredSignature = null;
     this.publishFailed = false;
     this.discoveryFailed = false;
@@ -79,7 +103,7 @@ export class Stations {
     this.config = config;
     this.schedule();
     logger.info(
-      `Started: ${config.stations.length} station name(s) typed, ${this.watched().length} station(s) added`,
+      `Started: ${config.stations.length} station name(s) typed, ${config.parisDistricts.length} district(s) of Paris, ${this.watched().length} device(s) added`,
     );
     // The first reading in the background: the widget and the scene action
     // wait for it.
@@ -129,20 +153,30 @@ export class Stations {
   // --- devices ----------------------------------------------------------------
 
   deviceId(stationId) {
-    return this.gladys.externalIds(STATION_TYPE, stationId).device;
+    return siteIds(this.gladys, stationId).device;
   }
 
-  /** The station id of a device created in Gladys, from its params or its external id. */
+  /** The site of a device created in Gladys (station UUID or "paris-13"), from its params or its external id. */
   stationOfDevice(device) {
-    const param = device?.params?.find?.((p) => p.name === 'station_id')?.value;
+    const params = device?.params?.find ? device.params : [];
+    const param = params.find((p) => p.name === 'station_id')?.value;
     if (isStationId(param)) {
       return param.toLowerCase();
     }
-    const id = String(device?.external_id ?? '').split(`:${STATION_TYPE}:`)[1];
-    return isStationId(id) ? id.toLowerCase() : null;
+    const district = params.find((p) => p.name === 'paris_district')?.value;
+    if (isDistrict(district)) {
+      return parisSite(district);
+    }
+    const externalId = String(device?.external_id ?? '');
+    const id = externalId.split(`:${STATION_TYPE}:`)[1];
+    if (isStationId(id)) {
+      return id.toLowerCase();
+    }
+    const fromId = externalId.split(`:${PARIS_TYPE}:`)[1];
+    return isDistrict(fromId) ? parisSite(fromId) : null;
   }
 
-  /** The stations added to Gladys: `{ deviceId, stationId, name }[]`. */
+  /** The sites added to Gladys: `{ deviceId, stationId, name }[]`. */
   watched() {
     return (this.gladys.devices ?? [])
       .map((device) => ({
@@ -153,7 +187,7 @@ export class Stations {
       .filter((entry) => entry.stationId);
   }
 
-  /** The stations found for the names typed: `{ id, name }[]`, without duplicates. */
+  /** The sites found: stations for the names typed, then the districts chosen. `{ id, name }[]`. */
   foundStations() {
     const found = new Map();
     for (const result of this.resolved) {
@@ -161,7 +195,16 @@ export class Stations {
         found.set(station.id, station);
       }
     }
+    for (const district of this.config.parisDistricts ?? []) {
+      found.set(parisSite(district), { id: parisSite(district), name: districtName(district) });
+    }
     return [...found.values()];
+  }
+
+  /** The name of a site for the sentences and the triggers. */
+  siteName(siteId, fallback) {
+    const district = districtOf(siteId);
+    return district ? districtName(district) : (this.names.get(siteId) ?? fallback);
   }
 
   /** The stations to read: the ones found, and the ones added to Gladys. */
@@ -182,7 +225,7 @@ export class Stations {
     }
     return {
       stationId: entry.stationId,
-      name: this.names.get(entry.stationId) ?? entry.name,
+      name: this.siteName(entry.stationId, entry.name),
       equipment: this.readings.get(entry.stationId) ?? null,
     };
   }
@@ -282,8 +325,8 @@ export class Stations {
     await this.resolve();
     const ids = this.activeIds();
     let events = [];
-    if (ids.length > 0 && (await this.readStates(ids))) {
-      events = this.changes();
+    if (ids.length > 0) {
+      events = this.changes(await this.readStates(ids));
     }
     await this.publishDiscovered({ force: forceDiscovery });
     const states = [];
@@ -308,7 +351,9 @@ export class Stations {
       this.resolvedFor = null;
     }
     // The list also names the stations added to Gladys, for the sentences.
-    const unnamed = this.watched().some((entry) => !this.names.has(entry.stationId));
+    const unnamed = this.watched().some(
+      (entry) => isStationId(entry.stationId) && !this.names.has(entry.stationId),
+    );
     if (queries.length === 0 && !unnamed) {
       return;
     }
@@ -356,36 +401,80 @@ export class Stations {
     }
   }
 
-  /** Reads the states of the stations; a failure is logged once, until it works again. */
+  /**
+   * Reads the states of the sites, each source on its own; a failure is
+   * logged once, until it works again, and keeps the last states of its
+   * sites. Resolves the sources read.
+   * @returns {Promise<Set<string>>}
+   */
   async readStates(ids) {
+    const groups = {
+      [SOURCES.SNCF]: ids.filter(isStationId),
+      [SOURCES.PARIS]: ids.filter(isParisSite),
+    };
+    const fresh = new Map();
+    const read = new Set();
+    await Promise.all(
+      Object.entries(groups)
+        .filter(([, list]) => list.length > 0)
+        .map(async ([name, list]) => {
+          const readings = await this.readSource(name, list);
+          if (readings) {
+            read.add(name);
+            for (const [id, equipment] of readings) {
+              fresh.set(id, equipment);
+            }
+          }
+        }),
+    );
+    const readings = new Map();
+    for (const id of ids) {
+      const equipment = fresh.get(id) ?? this.readings.get(id);
+      if (equipment) {
+        readings.set(id, equipment);
+      }
+    }
+    this.readings = readings;
+    return read;
+  }
+
+  /** One source: Map site → equipment[], or null on failure. */
+  async readSource(name, ids) {
+    const source = this.sources[name];
     try {
-      const readings = await readEquipment(this.fetch, ids);
-      // A station that had equipment and suddenly has none is a glitch of
-      // the portal (an empty answer), not a station without lifts.
-      const hadAny = [...this.readings.values()].some((list) => list.length > 0);
+      const readings =
+        name === SOURCES.PARIS
+          ? await readParis(this.fetch, ids)
+          : await readEquipment(this.fetch, ids);
+      // A site that had equipment and suddenly has none is a glitch of
+      // the portal (an empty answer), not a site without lifts.
+      const hadAny = ids.some((id) => this.readings.get(id)?.length > 0);
       if (hadAny && [...readings.values()].every((list) => list.length === 0)) {
-        throw new Error('ressources.data.sncf.com: empty answer');
+        throw new Error(
+          `${name === SOURCES.PARIS ? 'opendata.paris.fr' : 'ressources.data.sncf.com'}: empty answer`,
+        );
       }
       for (const [id, list] of readings) {
         if (list.length === 0 && this.readings.get(id)?.length > 0) {
           readings.set(id, this.readings.get(id));
         }
       }
-      this.readings = readings;
-      this.previousOkAt = this.okAt;
-      this.okAt = this.now();
-      if (this.error) {
-        logger.info('SNCF data back');
+      source.previousOkAt = source.okAt;
+      source.okAt = this.now();
+      if (source.error) {
+        logger.info(name === SOURCES.PARIS ? 'Paris data back' : 'SNCF data back');
       }
-      this.error = null;
-      logger.debug(`${ids.length} station(s) read`);
-      return true;
+      source.error = null;
+      logger.debug(`${ids.length} site(s) read from ${name}`);
+      return readings;
     } catch (err) {
-      if (!this.error) {
-        logger.warn(`SNCF data unavailable: ${err.message}`);
+      if (!source.error) {
+        logger.warn(
+          `${name === SOURCES.PARIS ? 'Paris' : 'SNCF'} data unavailable: ${err.message}`,
+        );
       }
-      this.error = err.message;
-      return false;
+      source.error = err.message;
+      return null;
     }
   }
 
@@ -395,15 +484,19 @@ export class Stations {
    * nor hides a change (KO → unknown → KO fires nothing, KO → unknown → OK
    * fires "back").
    */
-  changes() {
+  changes(read) {
     // A comparison with a reading hours old (a portal back after an outage)
     // would fire changes that are no longer news.
-    const recent =
-      this.previousOkAt !== null &&
-      this.okAt - this.previousOkAt <= 2 * this.config.refreshSeconds * 1000 + 5000;
+    const isRecent = ({ okAt, previousOkAt }) =>
+      previousOkAt !== null && okAt - previousOkAt <= 2 * this.config.refreshSeconds * 1000 + 5000;
     const watched = new Map(this.watched().map((entry) => [entry.stationId, entry]));
     const events = [];
     for (const [stationId, after] of this.readings) {
+      // A source not read this time: its states are the old ones.
+      if (!read.has(sourceOf(stationId))) {
+        continue;
+      }
+      const recent = isRecent(this.sources[sourceOf(stationId)]);
       const entry = watched.get(stationId);
       const { ko, total } = counts(after);
       for (const item of after) {
@@ -420,7 +513,7 @@ export class Stations {
           data: {
             station: entry.deviceId,
             kind: item.kind,
-            station_name: this.names.get(stationId) ?? entry.name,
+            station_name: this.siteName(stationId, entry.name),
             equipment_name: item.label,
             location: item.location,
             out_of_order: ko,
@@ -432,9 +525,10 @@ export class Stations {
     return events;
   }
 
-  /** True when the last good reading is hours old (or there is none). */
-  isStale() {
-    return this.okAt === null || this.now() - this.okAt > STALE_MS;
+  /** True when the last good reading of the source of a site is hours old (or there is none). */
+  isStale(siteId) {
+    const { okAt } = this.sources[sourceOf(siteId)];
+    return okAt === null || this.now() - okAt > STALE_MS;
   }
 
   async fire(key, data) {
@@ -456,7 +550,8 @@ export class Stations {
 
   status() {
     const blocks = [];
-    if (this.config.stations.length === 0) {
+    const districts = this.config.parisDistricts ?? [];
+    if (this.config.stations.length === 0 && districts.length === 0) {
       blocks.push(render(REPORTS, 'noStation'));
     }
     if (this.listError && this.config.stations.length > 0) {
@@ -473,15 +568,33 @@ export class Stations {
         blocks.push(render(REPORTS, result.noEquipment ? 'noEquipment' : 'none', result));
       }
     }
-    if (this.activeIds().length > 0) {
-      blocks.push(
-        this.okAt === null
-          ? render(REPORTS, 'waiting')
-          : render(REPORTS, 'read', { age: Math.round((this.now() - this.okAt) / 60000) }),
-      );
+    const paris = this.sources[SOURCES.PARIS];
+    for (const district of districts) {
+      const equipment = this.readings.get(parisSite(district));
+      if (paris.okAt !== null && equipment) {
+        const name = districtName(district);
+        blocks.push(
+          equipment.length > 0
+            ? render(REPORTS, 'district', { name, count: equipment.length })
+            : render(REPORTS, 'noDistrictEquipment', { name }),
+        );
+      }
     }
-    if (this.error) {
-      blocks.push(render(REPORTS, 'error', { error: this.error }));
+    const active = this.activeIds();
+    for (const name of Object.values(SOURCES)) {
+      if (!active.some((id) => sourceOf(id) === name)) {
+        continue;
+      }
+      const { okAt, error } = this.sources[name];
+      const keys = STATUS_KEYS[name];
+      blocks.push(
+        okAt === null
+          ? render(REPORTS, keys.waiting)
+          : render(REPORTS, keys.read, { age: Math.round((this.now() - okAt) / 60000) }),
+      );
+      if (error) {
+        blocks.push(render(REPORTS, keys.error, { error }));
+      }
     }
     blocks.push(render(REPORTS, 'watched', { count: this.watched().length }));
     return lines(...blocks);
