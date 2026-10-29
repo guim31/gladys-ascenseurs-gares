@@ -1,0 +1,52 @@
+[
+  {
+    "id": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "nom": "Haussmann Saint-Lazare",
+    "codes_uic": "87281899"
+  },
+  {
+    "id": "ea12f311-ff7f-4f9a-a259-32d1b5992ccc",
+    "nom": "Marseille Blancarde",
+    "codes_uic": "87751081"
+  },
+  {
+    "id": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "nom": "Marseille Saint-Charles",
+    "codes_uic": "87751008"
+  },
+  {
+    "id": "88e51a59-9746-4537-87c8-c4f52a6c28b4",
+    "nom": "Marseille-en-Beauvaisis",
+    "codes_uic": "87313726"
+  },
+  {
+    "id": "95122100-7841-4f90-8b69-f60d096a0b0b",
+    "nom": "Méru",
+    "codes_uic": "87313668"
+  },
+  {
+    "id": "002271ab-2ed4-4eaa-aed1-d1db7a81f230",
+    "nom": "Paris Austerlitz",
+    "codes_uic": "87547026;87547000"
+  },
+  {
+    "id": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "nom": "Paris Montparnasse",
+    "codes_uic": "87391003;87391011;87391102"
+  },
+  {
+    "id": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "nom": "Paris Saint-Lazare",
+    "codes_uic": "87384008"
+  },
+  {
+    "id": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "nom": "Toulouse Matabiau",
+    "codes_uic": "87611004"
+  },
+  {
+    "id": "10bebaca-9176-43c0-b77b-61cac93c8009",
+    "nom": "Vitrolles Aéroport Marseille Provence",
+    "codes_uic": "87439554"
+  }
+]

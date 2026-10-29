@@ -30,6 +30,15 @@ Gladys before reporting a problem.
 
 In scope: the code of this repository and the Docker image it publishes.
 
+What the integration handles:
+
+- **No secret**: the SNCF open data portal needs no account and no key.
+- **Nothing stored in `/data`**: the station names live in the Gladys
+  configuration, the station list and the last states in memory only.
+- **Network**: outgoing HTTPS requests only, to `ressources.data.sncf.com`,
+  with a timeout and a size cap on every answer. The station ids put in the
+  query are checked (UUIDs only). No port is opened.
+
 Out of scope: Gladys Assistant itself (see its
 [security policy](https://github.com/GladysAssistant/Gladys/security/policy)),
-and the third-party services and devices the integration talks to.
+and the SNCF open data portal.

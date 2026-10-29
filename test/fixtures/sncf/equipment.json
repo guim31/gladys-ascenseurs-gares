@@ -1,0 +1,1451 @@
+[
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "9b557e74-e3fd-4f0b-9100-8b368c9f5513",
+    "libelle": "Ascenseur - 11 Sortie Londres",
+    "localisationdescriptive": "Voie 27 / Sortie rue de Londres",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "33847f22-e286-4df8-b743-da81a3b8e059",
+    "libelle": "Ascenseur - ASC 2 (3581) / Panoramique clients coté Havre",
+    "localisationdescriptive": "Hall niveau Quais / Sortie Parvis Cour du Havre / Niveau metro -1 / Niveau Parking -2 / Niveau Parking -3",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "4d4e0406-9b95-4d51-9ef5-0d716963484c",
+    "libelle": "Ascenseur - Hall 1 - Coeur de gare",
+    "localisationdescriptive": "Hall 1 niveau 2 / Mezzanine niveau 1 / Hall 4 niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "53f58f1b-e369-49e4-9ea2-998418f0d94d",
+    "libelle": "ASC.PMR 1003 ASH4",
+    "localisationdescriptive": "Cour du Havre / passerelle supérieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "e9d1253b-c765-4dca-bcef-61078b0f0fa5",
+    "libelle": "ASC.PMR 1006 ASH2",
+    "localisationdescriptive": "Voies 31 et 33 / passerelle intermédiaire",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "dff4d049-9066-474e-82d1-f245be3252cb",
+    "libelle": "ASC.PMR 1009 ASC5",
+    "localisationdescriptive": "Voies 31 et 33 / terrasse",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "73916159-3c51-4bc0-bb2b-37d4bca7d3ef",
+    "libelle": "Ascenseur - Souterrain / Voies 2 et 3 (côté Sud)",
+    "localisationdescriptive": "Voies 2 et 3 (côté Sud) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "95122100-7841-4f90-8b69-f60d096a0b0b",
+    "id": "f991beb9-5caf-4afe-89d7-8812bd64c44c",
+    "libelle": "ascenseur - quai voie 1/VM",
+    "localisationdescriptive": "Voies 1 et M / Souterrain",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "38220deb-86ec-483d-81bd-710666be2b18",
+    "libelle": "Ascenseur - Souterrain / Voies 8 et 9 (côté Nord)",
+    "localisationdescriptive": "Voies 8 et 9 (côté Nord) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "ea2690cb-e787-4898-a065-be243401d42c",
+    "libelle": "Ascenseur - Hall 2 quai 1",
+    "localisationdescriptive": "Hall 2 / Milieu voie 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "029e5a59-d701-46cc-9d9e-4e8ae80fe6c7",
+    "libelle": "Ascenseur - Souterrain / Voies 2 et 3 (côté Nord)",
+    "localisationdescriptive": "Voies 2 et 3 (côté Nord) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "3ce70e9d-0b4b-4572-ad5f-7f8ac95a2369",
+    "libelle": "Esc mec - BC1 - Hall 1 du niveau +1 au niveau +2",
+    "localisationdescriptive": "Mezzanine niveau 1 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "4ce01840-c042-4c11-90e8-1d9e47d0c6c8",
+    "libelle": "Esc mec - BC7 - niveau +2 au niveau +1",
+    "localisationdescriptive": "Hall 1 niveau 2 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "e2e6392f-1141-4329-82c9-6340a5a9bd44",
+    "libelle": "esc mec - EM 3 - QT vers escalier d'honneur",
+    "localisationdescriptive": "Sortie Parvis Cour de Rome / Hall niveau Quais",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "3d79cc92-3cde-479e-b622-bd7ac60a5c44",
+    "libelle": "esc mec - EM 21 - Rue vers métro  côté Havre",
+    "localisationdescriptive": "Niveau Rue / Niveau Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "25892ce0-d42a-4ac1-b114-c7e2d1ece61f",
+    "libelle": "Esc mec - AC 06 - Hall 1 sortie vers rue du Commandant Mouchotte",
+    "localisationdescriptive": "Hall 1 niveau 2 / Sortie Rue du Commandant Mouchotte",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "39e38991-9b69-44fb-bf90-693941f2123d",
+    "libelle": "Esc mec - GC AC - hall 1 du niveau métro au niveau + 2 quai n° 24",
+    "localisationdescriptive": "Métro niveau -1 / Hall 1 niveau 2 voie 24",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "bf97ae70-e86c-4a2f-89ca-dfddedf3c5bb",
+    "libelle": "Esc mec - AB8 - hall 1 du niveau 0 porte Océane 1 au  niveau + 1",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "f7274a89-f08e-4a98-9361-9d705dcb2c25",
+    "libelle": "Esc mec - G 14 - Du hall 2 au quai 12/13",
+    "localisationdescriptive": "Milieu des voies 12 et 13 IDF / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "874ffa44-0ff3-4ba6-8513-e8b925fd6c5f",
+    "libelle": "Esc mec - AC15 - Hall 1 sortie Bd de Vaugirard",
+    "localisationdescriptive": "Hall 1 niveau 2 / Sortie Boulevard de Vaugirard",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "6de844b9-dc6e-4f62-9203-956756a2842f",
+    "libelle": "Esc mec - AB6 - niveau rue au niveau +1",
+    "localisationdescriptive": "Sortie Tour Montparnasse niveau 0 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "bb32bae6-a90b-4a2c-849d-d5a458a14b53",
+    "libelle": "ESC.MEC E729 HA2D1",
+    "localisationdescriptive": "(HA2D1) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "7ed7600a-f1e7-4fd3-94d5-8b77f940e5f3",
+    "libelle": "ESC.MEC E757 YDI3",
+    "localisationdescriptive": "1 rue d'Isly / passerelle supérieure pôle Saint-Lazare",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "3b27f617-8b65-4482-a4c3-8241f7cf5523",
+    "libelle": "ESC.MEC E731 HA3C1",
+    "localisationdescriptive": "(HA3C1) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "e8636910-7f5b-4948-bc55-1485c2d1c6da",
+    "libelle": "ESC.MEC E701 CA1D2",
+    "localisationdescriptive": "(CA1D2) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "6c0033c9-5315-4645-ad44-ff24cd409904",
+    "libelle": "ESC.MEC E705 CA2D2",
+    "localisationdescriptive": "(CA2D2) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "a7d2257e-75ad-4be3-984a-8c7cbf84bd03",
+    "libelle": "ESC.MEC E708 CA3D2",
+    "localisationdescriptive": "(CA3D2) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "061da678-e7ce-4578-84e7-42cb96fd819c",
+    "libelle": "Esc mec 3 - Accès métro / Parvis",
+    "localisationdescriptive": "Parvis / Accès métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "f0fa8c7e-8a2a-4b75-9340-5a8688eddeb8",
+    "libelle": "ESC.MEC E707 CA3D1",
+    "localisationdescriptive": "(CA3D1) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "5f07cb23-8e48-44f2-8b9e-beac228790d2",
+    "libelle": "ESC.MEC E754 WDE1",
+    "localisationdescriptive": "Salle Ouest ligne de contrôle / passerelle supérieure pôle Saint-Lazare",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "e0911e15-afa3-4e7d-8d85-7faf725cb812",
+    "libelle": "ESC.MEC E726 HA1C1",
+    "localisationdescriptive": "(HA1C1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "e7f4d60c-f571-4b57-b37b-e06a97392d1a",
+    "libelle": "Esc mec - F 14 - Du hall 2 au quai 10/11",
+    "localisationdescriptive": "Milieu des voies 10 et 11 IDF / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "14a7512b-18f0-4997-9e7a-5967234dd198",
+    "libelle": "Esc mec - BC8 - niveau +2 au niveau +1",
+    "localisationdescriptive": "Mezzanine niveau 1 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "a9eec635-67b5-401b-81cb-c2a54fad82cc",
+    "libelle": "Esc mec - H 14 - Du hall 2 au quai 14/15",
+    "localisationdescriptive": "Milieu des voies 14 et 15 IDF / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "323128b0-9166-4eab-8990-118ab8841041",
+    "libelle": "ESC.MEC E744 PN6",
+    "localisationdescriptive": "(PN6) Passage Nord sortie Saint-Lazare Nord / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "7d43ac7f-66f2-4b56-b47a-fd8ade3936d8",
+    "libelle": "Esc mec - AC 10 - hall 4 du niveau 0 à la plateforme IDF voies 10 à 13",
+    "localisationdescriptive": "Hall 4 niveau 0 / Voies 10 à 17 IDF Ligne N",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "35e3b4c8-e5a0-4323-9195-08a811371666",
+    "libelle": "Esc mec 5 - Souterrain Hall 1 / Hall 1 côté Espace Services",
+    "localisationdescriptive": "Hall 1 côté Espace Services / Souterrain Hall 1",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "e50e68e8-1b00-4fb6-865a-e1c2fd579d01",
+    "libelle": "Esc mec - AC 09 - hall 4 Plateforme IDF voies 10 à 13",
+    "localisationdescriptive": "Voies 10 à 17 IDF Ligne N / Hall 4 niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "a555bf3a-194a-4f50-93da-03e42445509a",
+    "libelle": "Esc mec - BC3 - niveau +1 au niveau +2",
+    "localisationdescriptive": "Hall 1 niveau 2 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "c046fbde-472b-46e0-9da2-d2afb40f82b8",
+    "libelle": "Esc mec - QN 1 - Hall 2 quai n° 24",
+    "localisationdescriptive": "Hall 2 / Voie 24",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "1a981250-a68f-4a6e-bdb0-f2a0f45ea25c",
+    "libelle": "Esc mec - A 13 -  Du hall 2 quai 1",
+    "localisationdescriptive": "Milieu de la voie 1 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "6d8741a6-52fa-4e10-9b2e-9fc15ed51719",
+    "libelle": "Esc mec - AB4 - niveau +1 au niveau rue",
+    "localisationdescriptive": "Mezzanine niveau 1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "8a224c9c-cbb4-4f0c-99bb-3abf14b158bf",
+    "libelle": "Esc mec - MA 06 - Hall 1 du niveau métro au niveau 0 porte Océane",
+    "localisationdescriptive": "Métro niveau -1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "697ef152-e667-474e-874f-24eea3b551ee",
+    "libelle": "Ascenseur - Hall 3 Ascenseur public gauche",
+    "localisationdescriptive": "Point Groupe niveau 4 / Hall 3 niveau 3 voies 25 à  28 / Voie 24 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "a6449b39-dd88-46d9-b616-cb6ef85d618c",
+    "libelle": "ASC.PMR 1004 ASH3",
+    "localisationdescriptive": "Passerelle supérieure / passerelle intermédiaire",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "069dffac-a5d4-43bf-b6ae-ada2af04e5c1",
+    "libelle": "ASC.PMR 1008 ASC4",
+    "localisationdescriptive": "Voies 32 et 34 / terrasse",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "10f273fa-0219-4af1-b7f7-da91fb244448",
+    "libelle": "Ascenseur  -  3 / Parking",
+    "localisationdescriptive": "Niveau Rue / Niveau Parking -2 / Niveau Parking -3",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "552e6991-c091-4414-be12-28165453a1b2",
+    "libelle": "Ascenseur - ASC géré Concédé R+1 côté galerie Hall 2",
+    "localisationdescriptive": "Hall 2",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "a1403c44-3c9f-4400-bce7-35efd245aa6b",
+    "libelle": "Ascenseur - Concessionnaires",
+    "localisationdescriptive": "Ascenseur concessionnaires",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "7be8e690-ef3f-49b3-be28-429e4f4a02bb",
+    "libelle": "Esc mec - BC6 - niveau +2 au niveau +1",
+    "localisationdescriptive": "Hall 1 niveau 2 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "52253034-06f3-4aef-ad5f-700bf27ef47a",
+    "libelle": "esc mec - EM 19 - Rue vers métro milieu côté Havre",
+    "localisationdescriptive": "Niveau Rue / Niveau Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "8182f007-ae46-4e30-bdad-d82f50ea0b9e",
+    "libelle": "Esc mec - M 14 - Du hall 2 au quai 22/23",
+    "localisationdescriptive": "Milieu des voies 22 et 23 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "bd4f4e38-621a-48d1-9f3e-56fcb676fcc6",
+    "libelle": "Esc mec - BC 02 - hall 1 du niveau + 2 au niveau + 1 côté  avenue du Maine",
+    "localisationdescriptive": "Hall 1 niveau 2 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "0b0261fa-e4fb-4ee9-9de9-3c8c469b61d2",
+    "libelle": "ESC.MEC E706 CA2D3",
+    "localisationdescriptive": "(CA2D3) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "e80cf414-2a78-48b1-854a-5ea81344b62f",
+    "libelle": "ESC.MEC E710 CA3D4",
+    "localisationdescriptive": "(CA3D4) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "5844b8f7-bdf0-4c42-b16e-5c36a8ac800c",
+    "libelle": "ESC.MEC E723 CFR1",
+    "localisationdescriptive": "(CFR1) Hall Caumartin / Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "4bb5c31a-2a72-45d5-ac49-8e8275bc42f4",
+    "libelle": "ESC.MEC E704 CA2D1",
+    "localisationdescriptive": "(CA2D1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "1ecf7933-d7d2-441b-91c1-9abbba3cac19",
+    "libelle": "ESC.MEC E702 CA1D3",
+    "localisationdescriptive": "(CA1D3) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "f43b606f-824f-429a-8a59-717a120f1177",
+    "libelle": "ESC.MEC E747 PO5",
+    "localisationdescriptive": "Passerelle supérieure Ouest pôle Saint-Lazare",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "a7a7822e-83ee-4863-af14-95aebbfdf2e0",
+    "libelle": "ESC.MEC E722 CEF2",
+    "localisationdescriptive": "(CEF2) Hall / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "f3469956-4272-4eb1-b52d-2e82f883838f",
+    "libelle": "ESC.MEC E732 HA3D1",
+    "localisationdescriptive": "(HA3D1) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "2a99c6a3-ffc4-4eff-8138-1175f71b7b50",
+    "libelle": "ESC.MEC E718 CDE2",
+    "localisationdescriptive": "(CDE2) Hall Caumartin / salle inférieure ligne 12",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "0e896cd2-2025-40e1-8cd9-9eed7b2a5ce7",
+    "libelle": "Esc mec - MA 09 - Hall 4 du niveau 0 au niveau métro",
+    "localisationdescriptive": "Hall 4 niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "d1a0f3df-8031-4103-bb03-0833d4007b18",
+    "libelle": "ESC.MEC E743 PN5",
+    "localisationdescriptive": "(PN5) Passage Nord sortie Saint-Lazare Nord / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "ca3f6278-33e2-4651-9dd6-17ffa8ba8b0a",
+    "libelle": "ESC.MEC E733 HA3D2",
+    "localisationdescriptive": "(HA3D2) Quai direction le havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "4197fc07-fc35-4476-bfe1-13c14bd3d47f",
+    "libelle": "esc mec - EM 25 - Quai sortie Londres",
+    "localisationdescriptive": "Souterrain / Voie 27",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "9aa64ea9-7172-4648-83aa-de5e89de79c9",
+    "libelle": "esc mec - EM 26 - sortie rue de Rome",
+    "localisationdescriptive": "Souterrain / Sortie 34 Rue de Rome",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "22113de1-058d-4a67-8fea-5a0936ef4a63",
+    "libelle": "Esc mec 6 - Souterrain Hall 1 / Voies 2 et 3",
+    "localisationdescriptive": "Voies 2 et 3 / Souterrain Hall 1",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "c81fcc29-782a-4689-ac0e-64018b6c0b59",
+    "libelle": "Esc mec 4 - Souterrain Hall 1 / Hall 1 côté Galerie",
+    "localisationdescriptive": "Hall 1 côté Galerie / Souterrain Hall 1",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "52cd65ba-99b8-477c-a3e1-6e3f0b5e69bf",
+    "libelle": "Esc mec - MA 03 - hall 1 du niveau métro au niveau 0 porte Océane 6",
+    "localisationdescriptive": "Métro niveau - 1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "f0fb7680-3a65-4432-8ce6-9e4e344db043",
+    "libelle": "esc mec - EM 13 - QT vers Rue SPP côté Havre",
+    "localisationdescriptive": "Niveau Rue parvis Cour du Havre / Hall Niveau Quais",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "cf900990-7f7c-4809-89c4-df1c7009c265",
+    "libelle": "ESC.MEC E734 HA4C1",
+    "localisationdescriptive": "(HA4C1) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "bda44ea7-1541-4f97-aef0-78d4f2c72275",
+    "libelle": "Esc mec 7 - Souterrain Hall 1 / Voies 4 et 5",
+    "localisationdescriptive": "Voies 4 et 5 / Souterrain Hall 1",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "d48a0afb-0d0a-4f07-a6ca-3bfbb204870a",
+    "libelle": "Esc mec - MA 08 - hall 1 du niveau 0 porte Océane 2 au niveau métro",
+    "localisationdescriptive": "Hall 4 niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "828cff84-e400-46ce-b332-2b0c49ebf295",
+    "libelle": "ESC.MEC E737 MOG1",
+    "localisationdescriptive": "(MOG1) Sortie Caumartin / Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "5114de1d-1311-4b90-bed7-a473a5a63726",
+    "libelle": "ESC.MEC E742 MOG6",
+    "localisationdescriptive": "(MOG6) Sortie Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "76784215-3686-40cc-be75-2d16c51e78f0",
+    "libelle": "esc mec - EM 22 - Rue vers métro  côté Havre",
+    "localisationdescriptive": "Niveau Métro / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "90872cb1-fcdd-4dc6-90a8-2048d5abc425",
+    "libelle": "ESC.MEC E719 CDF1",
+    "localisationdescriptive": "(CDF1) Hall Caumartin / salle inférieure ligne 12",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "648c6ec5-36af-4764-9528-fe6155801f6b",
+    "libelle": "Trottoir roul - Maine TR 1 / Quai n° 24 sens Vaugirard vers Maine",
+    "localisationdescriptive": "Milieu de la Voie 24 / Point groupe / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "a229b66c-6a21-4774-9184-4b84a24b9dbc",
+    "libelle": "Ascenseur - Souterrain / Voies 10 et 11 (côté Nord)",
+    "localisationdescriptive": "Voies 10 et 11 (côté Nord) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "72d999b5-09eb-4670-8551-fd1a87e294e5",
+    "libelle": "Ascenseur - Hall 1 VASA Est Ascenseur P1 accès parking et gare",
+    "localisationdescriptive": "Hall 1 niveau 2 / Parking Oceane niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "id": "a193d15e-2d32-4191-a2a5-4e0f2ac31c5e",
+    "libelle": "Ascenseur - Accès Métro et Bd Bourdet / Hall historique",
+    "localisationdescriptive": "Hall historique / Accès Métro et Bd Bourdet",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "12546245-83c5-4a17-b0c6-10b044014c4d",
+    "libelle": "Ascenseur - Souterrain / Voies 6 et 7 (côté Nord)",
+    "localisationdescriptive": "Voies 6 et 7 (côté Nord) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "id": "5c563e34-f025-47b3-a723-fa711e6b6a70",
+    "libelle": "Ascenseur - Parking P1 / Accès Bd Nédélec / Hall côté gare",
+    "localisationdescriptive": "Hall côté gare / Accès Bd Nédélec / Parking P1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "id": "76c9d03d-9364-4fa8-8fce-0c242ed762b4",
+    "libelle": "Ascenseur - Parking P1 / Accès Bd Nédélec / Hall côté Place Victor Hugo",
+    "localisationdescriptive": "Hall côté Place Victor Hugo / Accès Bd Nédélec / Parking P1",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "b1b92212-0a93-442b-80ab-b7d728b9477d",
+    "libelle": "Ascenseur - Métro / Parvis côté gare",
+    "localisationdescriptive": "Parvis côté gare / Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "5f528386-8118-4e9c-97a0-810f008d9894",
+    "libelle": "Ascenseur - Hall 2 quai 8-9",
+    "localisationdescriptive": "Hall 2 / Milieu des voies 8 et 9",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "b59fed3d-4e6c-4de0-bcb9-65a14a4ebb51",
+    "libelle": "Esc mec - AC 13 - hall 4 du niveau 0 au niveau + 2 voies 14 à 17",
+    "localisationdescriptive": "Hall 4 niveau 0 / Voies 10 à 17 IDF Ligne N",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "86a0b32c-491b-4ab6-9a78-7a4f5fc7761b",
+    "libelle": "Esc mec - L 14 - Du hall 2 au quai 20/21",
+    "localisationdescriptive": "Milieu des voies 20 et 21 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "135a1b4b-37ea-4cef-a8e8-e0c7fed0e908",
+    "libelle": "Esc mec - MA 01 - hall 1 du niveau 0 porte Océane au niveau métro",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "ae7ae2fb-1639-45a4-8d1e-06838706341f",
+    "libelle": "Esc mec - AC 11 - hall 4 du niveau + 2 au niveau 0  voies 14 à 17",
+    "localisationdescriptive": "Voies 10 à 17 IDF Ligne N / Hall 4 niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "d339e71e-965a-493b-9c9d-7ccc670cf561",
+    "libelle": "Esc mec - K 14 - Du hall 2 au quai 18/19",
+    "localisationdescriptive": "Milieu des voies 18 et 19 TER / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "b1c1b583-e541-4949-a260-01af9809113e",
+    "libelle": "ESC.MEC E755 YDI1",
+    "localisationdescriptive": "2 rue d'Isly / passerelle supérieure pôle Saint-Lazare",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "d583317f-933c-4dcb-8214-7ef4e457ed24",
+    "libelle": "Esc mec - E 14 - Du hall 2 au quai n° 8/9",
+    "localisationdescriptive": "Milieu des voies 8 et 9 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "0e701679-7bad-4a66-9d85-cadfd3dbcb6b",
+    "libelle": "Esc mec - AB7 - hall 1 du niveau 0 porte Océane 1 au  niveau + 1",
+    "localisationdescriptive": "Mezzanine niveau 1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "2f47ff13-92cb-4161-99f7-383704375da2",
+    "libelle": "esc mec - EM 14 - Rue vers métro côté Rome",
+    "localisationdescriptive": "Niveau Rue / Niveau Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "04fb1b3a-885b-493b-9be4-baa1c4569140",
+    "libelle": "Esc mec - AC 14 - Hall 1 sortie bd de Vaugirard",
+    "localisationdescriptive": "Sortie boulevard de Vaugirard / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "e4e88236-fea1-4d8f-9bf8-af077103129d",
+    "libelle": "ESC.MEC E721 CEF1",
+    "localisationdescriptive": "(CEF1) Hall / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "e1b359ae-6594-42c9-8567-42d24c5a556a",
+    "libelle": "ESC.MEC E738 MOG2",
+    "localisationdescriptive": "(MOG2) sortie Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "813bd3f1-14a5-46d8-b71a-e6b31a6cc284",
+    "libelle": "Esc mec - V2 - Hall 3 - De la voie 24 au hall",
+    "localisationdescriptive": "Voie 24 / Hall 3 niveau 3 voies 25 à 28",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "cc07425d-2288-4e30-92a5-f22abf1675cc",
+    "libelle": "ESC.MEC E712 CA4D1",
+    "localisationdescriptive": "(CA4D1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "9e10b2b2-9647-4038-acdf-4e70f00fdf3c",
+    "libelle": "ESC.MEC E735 HA4D1",
+    "localisationdescriptive": "(HA4D1) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "2f1616ac-e1e9-40b5-9246-f1dbddc7ad7f",
+    "libelle": "Esc mec - MA 02 - Hall 1 du niveau métro au niveau 0 porte Océane",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "91d21c34-3807-49b2-a15b-382b7e160e99",
+    "libelle": "ESC.MEC E746 PN8",
+    "localisationdescriptive": "(PN8) Passage Nord sortie Saint-Lazare Nord / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "bf2ed7cd-7429-4aab-9f31-2f1c58d49256",
+    "libelle": "ESC.MEC E724 CFR2",
+    "localisationdescriptive": "(CFR2) Hall Caumartin / Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "21721c15-177d-4f95-bdf9-d1a48f5a6fa5",
+    "libelle": "Esc mec - AC 04 - Hall 1 du niveau 0 porte Océane au niveau + 2",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "b00e7dc5-1850-418f-9907-d6fe56f68d57",
+    "libelle": "ESC.MEC E727 HA1D1",
+    "localisationdescriptive": "(HA1D1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "9139d5a5-c7b7-49ef-a789-f5599ca0d1ad",
+    "libelle": "ESC.MEC E711 CA4C1",
+    "localisationdescriptive": "(CA4C1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "32218438-3c3e-4b20-8fde-ddd9a54f9657",
+    "libelle": "ESC.MEC E703 CA2C1",
+    "localisationdescriptive": "(CA2C1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "718e002e-b348-453a-962f-0d03e82d305f",
+    "libelle": "ESC.MEC E740 MOG4",
+    "localisationdescriptive": "(MOG4) sortie Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "4812543a-82cd-46e1-a7d8-e6e757e8b31a",
+    "libelle": "Esc mec - AC 03 - Hall 1 du niveau 0 porte Océane au niveau + 2",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "2fd4fffd-fb6f-4007-b1cb-1ce06358f1d9",
+    "libelle": "Esc mec - MA 10 - Hall 4 du niveau 0 au niveau métro",
+    "localisationdescriptive": "Hall 4 niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "12403519-8d74-4a44-81fa-f48a1076bf34",
+    "libelle": "ESC.MEC E725 CFR3",
+    "localisationdescriptive": "(CFR3) Hall Caumartin / Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "187c130d-b4ca-420c-a7c6-0d60b1e0553f",
+    "libelle": "Esc mec - AB5 - niveau +1 au niveau rue",
+    "localisationdescriptive": "Mezzanine niveau 1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "2973873d-9430-4837-85ea-fee542e8b346",
+    "libelle": "esc mec - EM 6 - QT vers Rue SPP côté Rome",
+    "localisationdescriptive": "Hall Niveau Quais / Niveau Rue Parvis Cour de Rome",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "3619066d-4a6f-4f22-80f0-e30d095b8c22",
+    "libelle": "ESC.MEC E730 HA2D2",
+    "localisationdescriptive": "(HA2D2) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "7da70685-abdf-42ef-9143-26b31f96a2f1",
+    "libelle": "ESC.MEC E756 YDI2",
+    "localisationdescriptive": "1 rue de l'Isle / passerelle supérieure pôle Saint-Lazare",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "6e65805a-793b-4a3b-b64f-3f4099eb768f",
+    "libelle": "esc mec - EM 1 - QT vers Rue 20 rue de Rome",
+    "localisationdescriptive": "Sortie 20 Rue de Rome / Hall Niveau Quais",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "7a516596-b9e1-4bbc-9a8a-997817ebe69d",
+    "libelle": "Ascenseur - Hall 2 quai 4-5",
+    "localisationdescriptive": "Hall 2 / Milieu des voies 4 et 5",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "53a8bf2c-51f8-4141-acdb-3033a29b15c8",
+    "libelle": "Ascenseur - Hall 1 - Ascenseur panoramique 1 (A-B)",
+    "localisationdescriptive": "Hall 1 niveau 2 (panoramique gauche) / Sortie Tour Montparnasse niveau 0 / Metro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "67882383-2947-4267-a4f4-307466828259",
+    "libelle": "Ascenseur - Hall 3 Ascenseur public Droit",
+    "localisationdescriptive": "Point Groupe niveau 4 / Hall 3 niveau 3 voies 25 à  28 / Voie 24 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "7edd7fce-9318-4290-b6d1-16691f111c10",
+    "libelle": "Ascenseur - Hall 2 quai 2-3",
+    "localisationdescriptive": "Hall 2 / Milieu des voies 2 et 3",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "0cee9324-66db-41e0-9630-36d08b9ee759",
+    "libelle": "Ascenseur - Hall 1 - Ascenseur panoramique 2 (A-B)",
+    "localisationdescriptive": "Hall 1 niveau 2 (panoramique droite) / Sortie Tour Montparnasse niveau 0 / Metro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "8022f6fc-f87c-4708-a0da-9f030fdff25c",
+    "libelle": "Ascenseur - Hall 1 VASA Est Ascenseur P2 accès parking et gare",
+    "localisationdescriptive": "Hall 1 niveau 2 / Parking Oceane niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "c0f12050-e278-4b50-a95f-af66eb0faf30",
+    "libelle": "Ascenseur - ASC 1 (3580)- Panoramique clients coté Rome",
+    "localisationdescriptive": "Hall niveau Quais / Sortie Parvis Cour de Rome / Niveau metro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "f286e36b-8c9c-4468-9ccf-2fbb64f844ce",
+    "libelle": "Ascenseur - Souterrain / Voies 6 et 7 (côté Sud)",
+    "localisationdescriptive": "Voies 6 et 7 (côté Sud) / Souterrain",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "6ee8972a-de4e-496a-8d41-2fb80b75c04b",
+    "libelle": "Ascenseur Souterrain Hall 1 / Hall 1 côté galerie",
+    "localisationdescriptive": "Hall 1 côté galerie / Souterrain Hall 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "95122100-7841-4f90-8b69-f60d096a0b0b",
+    "id": "def42422-48dd-4c23-b9ed-b9c637f0023a",
+    "libelle": "ascenseur - quai voie 2 (BV)",
+    "localisationdescriptive": "Voie 2 / Souterrain",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "4340006b-5327-4842-b12d-2bc22ad44377",
+    "libelle": "Ascenseur - Souterrain / Voies 4 et 5 (côté Nord)",
+    "localisationdescriptive": "Voies 4 et 5 (côté Nord) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "227d4acb-d65f-4102-b3ba-b7f3b70962e9",
+    "libelle": "Ascenseur - Métro / Parvis côté canal",
+    "localisationdescriptive": "Parvis côté canal / Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "135a49a4-c8e3-4f5d-a41e-2b9a9dd29249",
+    "libelle": "Ascenseur Souterrain Hall 1 / Hall 1 Espace Services",
+    "localisationdescriptive": "Hall 1 Espace Services / Souterrain Hall 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "75edf740-274d-4a48-be93-66706d9120d3",
+    "libelle": "esc mec - EM 16 - Rue vers métro côté Rome",
+    "localisationdescriptive": "Niveau Métro / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "a1e88428-8ce8-4668-81a4-7ceedd2f4bfa",
+    "libelle": "Esc mec - MA 04 - hall 1 du niveau 0 porte Océane 5 au niveau métro",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "809cffb0-2f38-407c-b18d-58e6fe3800fb",
+    "libelle": "esc mec - EM 5 - QT vers Rue SPP côté Rome",
+    "localisationdescriptive": "Niveau Rue Parvis Cour de Rome / Hall Niveau Quais",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "bd1f25c9-57ec-40db-84b3-3598eba42db8",
+    "libelle": "esc mec - EM 18 - Rue vers métro milieu côté Rome",
+    "localisationdescriptive": "Niveau Métro / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "6d7a5ce9-3fac-4c87-9d07-47683985c4ae",
+    "libelle": "ESC.MEC E739 MOG3",
+    "localisationdescriptive": "(MOG3) sortie Mogador / Berry",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "c361381a-ff32-493f-bf4f-7a0fd2e02710",
+    "libelle": "Esc mec - AC 02 - hall 1 du niveau 0 porte Océane 6 au niveau + 2",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "573c024c-8fe6-4b36-a000-1b31e1d8b39b",
+    "libelle": "Esc mec - J 14 - Du hall 2 au quai 16/17",
+    "localisationdescriptive": "Milieu des voies 16 et 17 IDF / hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "0979804a-21f8-42c1-ae08-2de2a659a9d6",
+    "libelle": "Esc mec - AB1 - Hall 1 du niveau +1 au niveau 0",
+    "localisationdescriptive": "Mezzanine niveau 1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "b8e24e85-2bc2-4227-9bd2-d2b7de0f13b0",
+    "libelle": "Esc mec - BC10 - hall 1 du niveau + 1 au niveau",
+    "localisationdescriptive": "Hall 1 niveau 1 / niveau 2 côté boulevard de Vaugirard",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "72cd80d0-7c4e-4a55-8a30-51c9589cc955",
+    "libelle": "esc mec - EM 11 - QT vers Rue SPP côté Havre",
+    "localisationdescriptive": "Hall Niveau Quais / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "018a7617-916b-4a4c-a233-e838d7570154",
+    "libelle": "esc mec - EM 4 - QT vers Rue SPP côté Rome",
+    "localisationdescriptive": "Hall Niveau Quais / Niveau Rue Parvis Cour de Rome",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "a9d812a2-91c8-4e33-9bbc-2e950b87fd90",
+    "libelle": "esc mec - EM 2 - QT vers escalier d'honneur",
+    "localisationdescriptive": "Hall Niveau Quais / Sortie Parvis Cour de Rome",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "cb9dcce0-063c-4e2e-9735-c758447d2fe4",
+    "libelle": "ESC.MEC E749 SDE1",
+    "localisationdescriptive": "Passage Sud correspondance RER A",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "8fb8119c-ce43-44ca-a91e-ef7ce4ffaebe",
+    "libelle": "ESC.MEC E748 PO6",
+    "localisationdescriptive": "Sortie gare Saint-Lazare / passerelle supérieure pôle pôle Saint-lazare",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "6de9c596-7ac4-4757-a40b-ef424e7d90cd",
+    "libelle": "ESC.MEC E728 HA2C1",
+    "localisationdescriptive": "(HA2C1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "8e6e3188-7a62-46f8-9430-f65f13e23162",
+    "libelle": "Esc mec - MA 05 - Hall 1 du niveau 0 porte Océane au niveau métro",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Métro niveau -1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "48403ed8-10b1-4451-a6ca-3f3fea2c1344",
+    "libelle": "Esc mec - AC 01 - Hall 1 du niveau 0 porte Océane au niveau + 2",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "ccae0296-cefe-4154-acb4-3e8c2d604ba8",
+    "libelle": "ESC.MEC E700 CA1D1",
+    "localisationdescriptive": "(CA1D1) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "84743217-16c6-4082-8d55-0b7a7b3e26d7",
+    "libelle": "Esc mec - V1 - Hall 3 - Du hall vers la voie 24",
+    "localisationdescriptive": "Hall 3 niveau 3 voies 25 à 28 / Voie 24",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "9d190c3e-cab4-413f-92e1-2b79677e0522",
+    "libelle": "esc mec - EM 27 - sortie rue de Rome",
+    "localisationdescriptive": "Sortie 34 Rue de Rome / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "0fb4bafc-6e03-4ac5-95f7-7544ef973122",
+    "libelle": "ESC.MEC E745 PN7",
+    "localisationdescriptive": "(PN7) Passage Nord sortie Saint-Lazare Nord / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "53d2049f-ba80-4a30-a1f9-ff52b4b562e0",
+    "libelle": "ESC.MEC E715 CCD1",
+    "localisationdescriptive": "(CCD1) Hall Caumartin Niveau Quai - correspondance RER A - ligne 9",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "id": "7c7741cb-05a3-4253-8f05-bbf49e2379b0",
+    "libelle": "Esc mec - Accès métro, taxis, VTC côté Espace Zou / Hall [AMB32935]",
+    "localisationdescriptive": "Hall / Accès métro, taxis, VTC côté Espace Zou",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "2e32079c-a9fa-4033-8771-69bc74bd7944",
+    "libelle": "Esc mec - AC 05 - Sortie rue du Commandant Mouchotte vers Hall 1",
+    "localisationdescriptive": "Sortie Rue du Commandant Mouchotte / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "0ee44443-6b3a-4c48-a738-2188080b3d71",
+    "libelle": "Esc mec 8 - Souterrain Hall 1 / Voies 6 et 7",
+    "localisationdescriptive": "Voies 6 et 7 / Souterrain Hall 1",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "f4c92a4d-9b65-4de5-a70d-1cf149828bb9",
+    "libelle": "Esc mec 2 - Souterrain Hall 2 / Hall 2 côté Galerie",
+    "localisationdescriptive": "Hall 2 côté Galerie / Souterrain Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "2fb4d4f7-5b00-41aa-879f-b869940abd5c",
+    "libelle": "Esc mec - D 14 - Du hall 2 au quai n° 6/7",
+    "localisationdescriptive": "Milieu des voies 6 et 7 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "dfe8ddfc-6ff4-45c0-b487-c374206c0b34",
+    "libelle": "ESC.MEC E736 HA4D2",
+    "localisationdescriptive": "(HA4D2) Quai direction Le Havre",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "ac70d39b-a2d5-4854-84c2-acc7806b52d7",
+    "libelle": "Esc mec - MA 11 - Hall 4 du niveau métro au niveau 0",
+    "localisationdescriptive": "Hall 4 niveau 0 / Métro niveau - 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "bac14da9-a1a2-42ce-b7e8-ce316bfaef88",
+    "libelle": "ESC.MEC E716 CCD2",
+    "localisationdescriptive": "(CCD2) Hall Caumartin Niveau Quai - correspondance RER A - ligne 9",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "edb8c813-b70b-4ccd-af55-e565b79e0cc8",
+    "libelle": "esc mec - EM 8 - QT vers Rue SPP milieu côté Rome",
+    "localisationdescriptive": "Niveau Rue / Hall Niveau Quais",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "434cffe3-990f-4c13-a6bc-f7e173ccda80",
+    "libelle": "ESC.MEC E717 CDE1",
+    "localisationdescriptive": "(CDE1) Hall Caumartin / salle inférieure ligne 12",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "3452c2fc-a6ae-439d-8666-78bd6226c516",
+    "libelle": "esc mec - EM 9 - QT vers Rue SPP milieu côté Havre",
+    "localisationdescriptive": "Hall Niveau Quais / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "0e7186f5-f1a8-4ffd-b047-8ac918b69fef",
+    "libelle": "esc mec - EM 10 - QT vers Rue SPP milieu côté Havre",
+    "localisationdescriptive": "Niveau Rue / Hall Niveau Quais",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "f3523186-3aec-4bb9-9fcc-cbdfb8c19e06",
+    "libelle": "Esc mec - BC9 - hall 1 du niveau + 2 au niveau",
+    "localisationdescriptive": "Hall 1 niveau 2 / niveau 1 côté boulevard de Vaugirard",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "b1d0462a-ecb8-4376-a041-4cd1669a424e",
+    "libelle": "ESC.MEC E709 CA3D3",
+    "localisationdescriptive": "(CA3D3) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "4e256e61-30d6-404b-8a64-1706f2f69005",
+    "libelle": "Esc mec - EM 12 / QT vers Rue SPP côté Havre",
+    "localisationdescriptive": "Hall Niveau Quais / Niveau Rue",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "0268c400-0d70-4c0b-9686-3d18da299da2",
+    "libelle": "Trottoir roul - Maine: TR 3 / Du point G vers le milieu du quai n° 24 (double sens)",
+    "localisationdescriptive": "Milieu de la Voie 24 / Point groupe / Vers Hall 3",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "8ada7fcf-a05f-4a62-8a37-6ab9f777f17c",
+    "libelle": "Trottoir roul - Maine: TR 2 - Quai n° 24 sens Maine vers Vaugirard",
+    "localisationdescriptive": "Hall 1 niveau 2 / Milieu de la Voie 24 / Point groupe",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "c843ad47-b2a7-4ef0-a666-af65e94d43c7",
+    "libelle": "Ascenseur - Hall 1 Ascenseur salon GV",
+    "localisationdescriptive": "Niveau 3 Salon Grand Voyageur, Centre de / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "90f6f6a5-43d0-43c3-816c-f7e0f8a1b6af",
+    "libelle": "Ascenseur - Souterrain / Voie 1 (BV)",
+    "localisationdescriptive": "Voie 1 / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "b729d3b7-5fc2-462d-bc86-b55463b9cb11",
+    "libelle": "ASC.PMR 1005 ASH1",
+    "localisationdescriptive": "Voies 32 et 34 / passerelle intermédiaire",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "34a79aa7-e1e6-4c48-a6c0-bc5cc3a72a11",
+    "libelle": "Ascenseur - Souterrain / Voies 8 et 9 (côté Sud)",
+    "localisationdescriptive": "Voies 8 et 9 (côté Sud) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "4e54384c-2600-499d-8b26-c453dbccff64",
+    "libelle": "Ascenseur - Souterrain / Voies 4 et 5 (côté Sud)",
+    "localisationdescriptive": "Voies 4 et 5 (côté Sud) / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "977f3731-7d98-4e70-a057-4cb954c30f1c",
+    "libelle": "Ascenseur - 10 Porte D",
+    "localisationdescriptive": "Accueil bureaux multiburo / Accueil reunions multiburo / Accueil l'Usine / Hall Niveau Quais / Sortie Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "2fa7d37e-93a3-4bb5-a1cd-20db9e0eb306",
+    "libelle": "Ascenseur - Escalier 1 rome (Asc loué à Klépière pour utilisation par clients tiers)",
+    "localisationdescriptive": "005346A-A-5-17-0-19",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "99510527-0209-4ec6-a579-43b642dee313",
+    "libelle": "Ascenseur - Concédés côté Parvis",
+    "localisationdescriptive": "Parvis",
+    "etat_de_fonctionnement": "INCONNU"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "e54911ce-bb08-404c-86bf-c7835f79773e",
+    "libelle": "Ascenseur - hall 2 quai 6-7",
+    "localisationdescriptive": "Hall 2 / Milieu des voies 6 et 7",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "377737e1-bcba-43a8-8908-fc454b639e89",
+    "libelle": "ASC.PMR 1007 ASC1",
+    "localisationdescriptive": "Place Berry / terrasse supérieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "3f1f9433-6ee8-43b3-9d72-8a06ffb117cb",
+    "libelle": "Esc mec - BC4 - niveau +2 au niveau +1",
+    "localisationdescriptive": "Hall 1 niveau 2 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "2b19f737-9197-4b81-8c43-6e2e8b39c914",
+    "libelle": "Esc mec - MA 07 - hall 1 du niveau métro au niveau 0 porte Océane 1",
+    "localisationdescriptive": "Métro niveau - 1 / Sortie Tour Monparnasse niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "5884d87f-333a-4350-b497-f3080c0b1912",
+    "libelle": "Esc mec - BC5 - niveau +1 au niveau +2",
+    "localisationdescriptive": "Mezzanine niveau 1 / Hall 1 niveau 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "bb826d5c-c02e-4bc4-9cdb-a85511ade2fe",
+    "libelle": "esc mec - EM 17 - Rue vers métro milieu côté Rome",
+    "localisationdescriptive": "Niveau Rue / Niveau Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "3d1b166b-15dc-4074-9557-83b6b184c139",
+    "libelle": "esc mec - EM 20 - Rue vers métro milieu côté Havre",
+    "localisationdescriptive": "Niveau Métro / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "b56738b1-d537-4ce1-9cea-19f7d1d7e684",
+    "libelle": "esc mec - EM 15 - Rue vers métro côté Rome",
+    "localisationdescriptive": "Niveau Rue / Niveau Métro",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "330cbe38-9b6a-40b8-9077-070fbfe4ad05",
+    "libelle": "Esc mec - QN 2 - Hall 2 quai n° 24",
+    "localisationdescriptive": "Voie 24 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "6fb6c55d-8ab7-4231-8958-7e6e8c4665f1",
+    "libelle": "esc mec - EM 7 - QT vers Rue SPP milieu côté Rome",
+    "localisationdescriptive": "Hall Niveau Quais / Niveau Rue",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "fd95e7f7-d9ba-4f4f-ab63-e723cb60a791",
+    "libelle": "Esc mec - B 14 - Du hall 2 au quai n° 2/3",
+    "localisationdescriptive": "Milieu des voies 2 et 3 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "c9d6c739-54b6-4c15-af9c-3f57d7a687fd",
+    "libelle": "esc mec - EM 29 - sortie Londres haut",
+    "localisationdescriptive": "Voie 27 / Sortie Rue de Londres",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "fe16e3b7-d282-43fb-bf45-e67dce2747e1",
+    "libelle": "Esc mec - AB2 - Hall 1 du niveau 0 au niveau +1",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "a01809b4-4360-4e0c-b95c-1381e9db8bd2",
+    "libelle": "Esc mec - AC 08 - hall 4 de la plateforme IDF voies 10 à 13 au niveau niveau 0",
+    "localisationdescriptive": "Voies 10 à 17 IDF Ligne N / Hall 4 niveau 0",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "addaaba2-16cd-4fa7-88f0-f1ce6e5cb7c3",
+    "libelle": "Esc mec - AC 12 - hall 4 du niveau 0 au niveau + 2  14 à 17",
+    "localisationdescriptive": "Hall 4 niveau 0 / Voies 10 à 17 IDF Ligne N",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "f118e6ae-cc6d-4a8e-b530-653068afd5e3",
+    "libelle": "ESC.MEC E720 CDF2",
+    "localisationdescriptive": "(CDF2) Hall / salle inférieure",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "316c0479-cf9e-43d5-b3b0-9f798c9e8aa9",
+    "libelle": "ESC.MEC E750 SDE2",
+    "localisationdescriptive": "Passage Sud correspondance RER A",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "732219f4-8af3-4b68-a79d-6ab8fa9bf01f",
+    "libelle": "ESC.MEC E713 CA4D2",
+    "localisationdescriptive": "(CA4D2) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "id": "e1b57516-8f96-402a-bd6c-837701f885f3",
+    "libelle": "Esc mec - Accès métro, taxis, VTC / Hall côté Espace d'attente [AMB32934]",
+    "localisationdescriptive": "Hall côté Espace d'attente / Accès métro, taxis, VTC",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "876acd6d-c67b-47fd-95ee-f2b13b33508e",
+    "id": "25e1b226-5d50-44b5-aae0-e60e03fbf6ff",
+    "libelle": "Esc mec 1 - Souterrain Hall 2 / Hall 2 côté Relay",
+    "localisationdescriptive": "Souterrain Hall 2 / Hall 2 côté Relay",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "b0ce193b-0926-4b87-8bf9-f37a1332e9a1",
+    "id": "4916c152-c8e2-4e84-a6b7-953ca806c0c1",
+    "libelle": "Esc mec - Accès métro, taxis, VTC côté Starbucks / Hall [AMB29884]",
+    "localisationdescriptive": "Hall historique / Accès métro, taxis, VTC côté Starbucks",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "b51a8828-daa1-4f92-b58b-8df6063e83c1",
+    "libelle": "esc mec - EM 24 - Quai sortie Londres",
+    "localisationdescriptive": "Voie 27 / Souterrain",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "b406c3c3-9e19-4bfb-aec6-b24632cf52be",
+    "libelle": "ESC.MEC E714 CA4D3",
+    "localisationdescriptive": "(CA4D3) Hall Caumartin Niveau Quai",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "a62a8304-b7ca-4811-bf9f-6a871e092257",
+    "libelle": "Esc mec - AB3 - niveau +1 au niveau rue",
+    "localisationdescriptive": "Sortie Tour Monparnasse niveau 0 / Mezzanine niveau 1",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "480005db-2607-44af-b9fa-c2a5b37707c7",
+    "libelle": "ESC.MEC E753 WCD1",
+    "localisationdescriptive": "Salle Ouest ligne de contrôle / passerelle supérieure pôle Saint-Lazare",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "d942db30-9eb5-421a-b163-e37a3f987aab",
+    "libelle": "Esc mec - EM 23 / Rue vers métro  côté Havre",
+    "localisationdescriptive": "Niveau Métro / Niveau Rue",
+    "etat_de_fonctionnement": "KO"
+  },
+  {
+    "gareid": "db3c1d28-2b95-43df-ae9f-5418a778abe0",
+    "id": "b9d4825e-eef6-4617-a105-7050dc6aaef1",
+    "libelle": "Esc mec - C 14 - Du hall 2 au quai n° 4/5",
+    "localisationdescriptive": "Milieu des voies 4 et 5 / Hall 2",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "69a5f787-dba4-4e73-92e2-b03d8aed840b",
+    "id": "5d0f77ee-8729-4796-84f6-6765d809b1a6",
+    "libelle": "ESC.MEC E741 MOG5",
+    "localisationdescriptive": "(MOG5) sortie Mogador / Berry",
+    "etat_de_fonctionnement": "OK"
+  },
+  {
+    "gareid": "9525725e-3b2c-4d63-9fa9-236a4ae26fee",
+    "id": "1902bfa9-b11a-47fc-ba20-752473c4d86d",
+    "libelle": "esc mec - EM 28 - sortie Londres haut",
+    "localisationdescriptive": "Sortie Rue de Londres / Voie 27",
+    "etat_de_fonctionnement": "OK"
+  }
+]
